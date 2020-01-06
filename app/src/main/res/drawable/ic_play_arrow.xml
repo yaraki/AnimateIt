@@ -14,10 +14,13 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<resources>
-    <dimen name="spacing_medium">16dp</dimen>
-    <dimen name="spacing_large">32dp</dimen>
-
-    <dimen name="slide_width">1920dp</dimen>
-    <dimen name="slide_height">980dp</dimen>
-</resources>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M8,5v14l11,-7z" />
+</vector>
