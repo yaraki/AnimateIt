@@ -18,20 +18,34 @@ package io.github.yaraki.animateit
 
 import android.os.Build
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commitNow
-import io.github.yaraki.animateit.slide.FirstFragment
+import androidx.lifecycle.observe
 
-class SlideActivity : AppCompatActivity() {
+class DeckActivity : AppCompatActivity() {
+
+    private val viewModel: DeckViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.slide_activity)
 
-        supportFragmentManager.commitNow {
-            replace(R.id.container, FirstFragment())
+        viewModel.pages.observe(this) { page ->
+            supportFragmentManager.commitNow {
+                replace(R.id.container, page.create())
+            }
+        }
+    }
+
+    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
+        return when (keyCode) {
+            KeyEvent.KEYCODE_DPAD_DOWN -> viewModel.showNext()
+            KeyEvent.KEYCODE_DPAD_UP -> viewModel.showPrevious()
+            else -> super.onKeyUp(keyCode, event)
         }
     }
 

@@ -23,10 +23,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import io.github.yaraki.animateit.R
 
-class FirstFragment : Fragment() {
+class TitleFragment : Fragment() {
 
     companion object : Page {
-        override fun create() = FirstFragment()
+        override fun create() = TitleFragment()
     }
 
     override fun onCreateView(
@@ -34,6 +34,6 @@ class FirstFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.slide_first, container, false)
+        return inflater.inflate(R.layout.slide_title, container, false)
     }
 }

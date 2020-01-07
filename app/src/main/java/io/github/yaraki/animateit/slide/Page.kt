@@ -16,24 +16,10 @@
 
 package io.github.yaraki.animateit.slide
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import io.github.yaraki.animateit.R
 
-class FirstFragment : Fragment() {
+interface Page {
 
-    companion object : Page {
-        override fun create() = FirstFragment()
-    }
+    fun create(): Fragment
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.slide_first, container, false)
-    }
 }

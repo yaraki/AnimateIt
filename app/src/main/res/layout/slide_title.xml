@@ -14,11 +14,17 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<resources>
-    <dimen name="spacing_medium">16dp</dimen>
-    <dimen name="spacing_large">32dp</dimen>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/slide_width"
+    android:layout_height="@dimen/slide_height"
+    android:orientation="vertical">
 
-    <dimen name="slide_width">1920dp</dimen>
-    <dimen name="slide_height">980dp</dimen>
-    <dimen name="text_title">256sp</dimen>
-</resources>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="動かす"
+        android:textSize="@dimen/text_title" />
+
+</FrameLayout>

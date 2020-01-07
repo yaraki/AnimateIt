@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<FloatingActionButton>(R.id.start).setOnClickListener {
-            startActivity(Intent(this, SlideActivity::class.java))
+            startActivity(Intent(this, DeckActivity::class.java))
         }
     }
 }
