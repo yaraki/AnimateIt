@@ -14,17 +14,15 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<FrameLayout
+<io.github.yaraki.animateit.ui.DeckFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/slide_width"
-    android:layout_height="@dimen/slide_height"
-    android:orientation="vertical">
+    android:id="@+id/frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="動かす"
-        android:textSize="@dimen/text_title" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-</FrameLayout>
+</io.github.yaraki.animateit.ui.DeckFrameLayout>

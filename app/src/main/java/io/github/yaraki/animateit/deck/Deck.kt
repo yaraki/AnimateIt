@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.slide
+package io.github.yaraki.animateit.deck
 
 object Deck {
 

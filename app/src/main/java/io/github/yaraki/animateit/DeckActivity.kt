@@ -32,9 +32,9 @@ class DeckActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.slide_activity)
+        setContentView(R.layout.deck_activity)
 
-        viewModel.pages.observe(this) { page ->
+        viewModel.page.observe(this) { page ->
             supportFragmentManager.commitNow {
                 replace(R.id.container, page.create())
             }
@@ -43,8 +43,8 @@ class DeckActivity : AppCompatActivity() {
 
     override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
-            KeyEvent.KEYCODE_DPAD_DOWN -> viewModel.showNext()
-            KeyEvent.KEYCODE_DPAD_UP -> viewModel.showPrevious()
+            KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_VOLUME_DOWN -> viewModel.showNext()
+            KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_VOLUME_UP -> viewModel.showPrevious()
             else -> super.onKeyUp(keyCode, event)
         }
     }

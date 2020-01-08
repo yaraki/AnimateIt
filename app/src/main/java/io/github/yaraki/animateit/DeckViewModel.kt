@@ -19,23 +19,23 @@ package io.github.yaraki.animateit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.github.yaraki.animateit.slide.Deck
-import io.github.yaraki.animateit.slide.Page
+import io.github.yaraki.animateit.deck.Deck
+import io.github.yaraki.animateit.deck.Page
 
 class DeckViewModel : ViewModel() {
 
     private var position = 0
 
-    private val _slide = MutableLiveData<Page>(Deck.pages[position])
-    val pages: LiveData<Page>
-        get() = _slide
+    private val _page = MutableLiveData<Page>(Deck.pages[position])
+    val page: LiveData<Page>
+        get() = _page
 
     fun showNext(): Boolean {
         if (position + 1 >= Deck.pages.size) {
             return false
         }
         position++
-        _slide.value = Deck.pages[position]
+        _page.value = Deck.pages[position]
         return true
     }
 
@@ -44,7 +44,7 @@ class DeckViewModel : ViewModel() {
             return false
         }
         position--
-        _slide.value = Deck.pages[position]
+        _page.value = Deck.pages[position]
         return true
     }
 }

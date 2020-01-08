@@ -24,14 +24,14 @@ import androidx.core.view.children
 import io.github.yaraki.animateit.R
 import kotlin.math.min
 
-class SlideFrameLayout @JvmOverloads constructor(
+class DeckFrameLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val slideWidth = context.resources.getDimensionPixelSize(R.dimen.slide_width)
-    private val slideHeight = context.resources.getDimensionPixelSize(R.dimen.slide_height)
+    private val slideWidth = context.resources.getDimensionPixelSize(R.dimen.page_width)
+    private val slideHeight = context.resources.getDimensionPixelSize(R.dimen.page_height)
 
     private var scale = 1f
 
