@@ -30,7 +30,7 @@ class DeckViewModel : ViewModel() {
     val page: LiveData<Page>
         get() = _page
 
-    fun showNext(): Boolean {
+    fun showNextPage(): Boolean {
         if (position + 1 >= Deck.pages.size) {
             return false
         }
@@ -39,7 +39,7 @@ class DeckViewModel : ViewModel() {
         return true
     }
 
-    fun showPrevious(): Boolean {
+    fun showPreviousPage(): Boolean {
         if (position == 0) {
             return false
         }

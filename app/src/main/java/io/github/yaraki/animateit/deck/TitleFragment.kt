@@ -25,7 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.transition.Fade
 import io.github.yaraki.animateit.R
 
-class TitleFragment : Fragment() {
+class TitleFragment : PageFragment() {
 
     companion object : Page {
         override fun create() = TitleFragment()
@@ -50,5 +50,13 @@ class TitleFragment : Fragment() {
         view.findViewById<TextView>(R.id.title).setOnClickListener { v ->
             v.animate().rotationBy(360f)
         }
+    }
+
+    override fun showNextStep(): Boolean {
+        return false
+    }
+
+    override fun showPreviousStep(): Boolean {
+        return false
     }
 }

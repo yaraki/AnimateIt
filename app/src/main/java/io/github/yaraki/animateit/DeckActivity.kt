@@ -25,6 +25,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commitNow
 import androidx.lifecycle.observe
+import io.github.yaraki.animateit.deck.PageFragment
+
+private const val TAG_PAGE = "page"
 
 class DeckActivity : AppCompatActivity() {
 
@@ -41,11 +44,17 @@ class DeckActivity : AppCompatActivity() {
         }
     }
 
-    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
-            KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_VOLUME_DOWN -> viewModel.showNext()
-            KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_VOLUME_UP -> viewModel.showPrevious()
-            else -> super.onKeyUp(keyCode, event)
+            KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_VOLUME_DOWN -> {
+                showNext()
+                true
+            }
+            KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_VOLUME_UP -> {
+                showPrevious()
+                true
+            }
+            else -> super.onKeyDown(keyCode, event)
         }
     }
 
@@ -54,6 +63,22 @@ class DeckActivity : AppCompatActivity() {
         if (hasFocus) {
             hideSystemUi()
         }
+    }
+
+    private fun showNext() {
+        val page = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
+        if (page != null && page.showNextStep()) {
+            return
+        }
+        viewModel.showNextPage()
+    }
+
+    private fun showPrevious() {
+        val page = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
+        if (page != null && page.showPreviousStep()) {
+            return
+        }
+        viewModel.showPreviousPage()
     }
 
     private fun hideSystemUi() {

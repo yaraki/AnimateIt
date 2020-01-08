@@ -20,10 +20,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import io.github.yaraki.animateit.R
 
-class FirstFragment : Fragment() {
+class FirstFragment : PageFragment() {
 
     companion object : Page {
         override fun create() = FirstFragment()
@@ -35,5 +34,13 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.page_first, container, false)
+    }
+
+    override fun showNextStep(): Boolean {
+        return false
+    }
+
+    override fun showPreviousStep(): Boolean {
+        return false
     }
 }

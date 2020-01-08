@@ -16,8 +16,12 @@
 
 package io.github.yaraki.animateit.deck
 
-interface Page {
+import androidx.fragment.app.Fragment
 
-    fun create(): PageFragment
+abstract class PageFragment : Fragment() {
+
+    abstract fun showNextStep(): Boolean
+
+    abstract fun showPreviousStep(): Boolean
 
 }
