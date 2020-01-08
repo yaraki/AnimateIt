@@ -35,12 +35,4 @@ class FirstFragment : PageFragment() {
     ): View? {
         return inflater.inflate(R.layout.page_first, container, false)
     }
-
-    override fun showNextStep(): Boolean {
-        return false
-    }
-
-    override fun showPreviousStep(): Boolean {
-        return false
-    }
 }

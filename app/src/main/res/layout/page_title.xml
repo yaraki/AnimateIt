@@ -26,6 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="動かす"
-        android:textSize="@dimen/text_title" />
+        android:textSize="@dimen/text_deck_title" />
 
 </FrameLayout>

@@ -16,13 +16,23 @@
 
 package io.github.yaraki.animateit.deck
 
-object Deck {
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import io.github.yaraki.animateit.R
 
-    val pages = listOf(
-        FirstFragment,
-        TitleFragment,
-        AllApisFragment,
-        ViewAnimationFragment
-    )
+class ViewAnimationFragment : PageFragment() {
 
+    companion object : Page {
+        override fun create() = ViewAnimationFragment()
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.page_view_animation, container, false)
+    }
 }

@@ -22,4 +22,16 @@
         <item name="colorAccent">@color/accent</item>
     </style>
 
+    <style name="Widget.AnimateIt.TextView.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/text_title</item>
+    </style>
+
+    <style name="Widget.AnimateIt.TextView.Paragraph" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+
+    <style name="Widget.AnimateIt.TextView.Api" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+
 </resources>

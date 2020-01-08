@@ -20,8 +20,11 @@ import androidx.fragment.app.Fragment
 
 abstract class PageFragment : Fragment() {
 
-    abstract fun showNextStep(): Boolean
+    open fun showNextStep(): Boolean {
+        return false
+    }
 
-    abstract fun showPreviousStep(): Boolean
-
+    open fun showPreviousStep(): Boolean {
+        return false
+    }
 }

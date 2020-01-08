@@ -51,12 +51,4 @@ class TitleFragment : PageFragment() {
             v.animate().rotationBy(360f)
         }
     }
-
-    override fun showNextStep(): Boolean {
-        return false
-    }
-
-    override fun showPreviousStep(): Boolean {
-        return false
-    }
 }
