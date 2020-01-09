@@ -22,10 +22,10 @@ import android.view.View
 import android.view.ViewGroup
 import io.github.yaraki.animateit.R
 
-class FirstFragment : PageFragment() {
+class ViewOverlayFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = FirstFragment()
+        override fun create() = ViewOverlayFragment()
     }
 
     override fun onCreateView(
@@ -33,6 +33,6 @@ class FirstFragment : PageFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.page_first, container, false)
+        return inflater.inflate(R.layout.page_view_overlay, container, false)
     }
 }

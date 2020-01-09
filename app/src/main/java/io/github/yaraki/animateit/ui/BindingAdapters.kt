@@ -14,18 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.ui
 
-object Deck {
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 
-    val pages = listOf(
-        TitleFragment,
-        AllApisFragment,
-        ViewAnimationFragment,
-        ObjectAnimatorFragment,
-        MaterialIoFragment,
-        FadeCrossFadeFragment,
-        ViewOverlayFragment
-    )
-
+@BindingAdapter("android:src")
+fun setImageResource(view: ImageView, resId: Int) {
+    view.setImageResource(resId)
 }

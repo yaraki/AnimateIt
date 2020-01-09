@@ -16,7 +16,9 @@
 
 package io.github.yaraki.animateit.deck
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.transition.Fade
 
 abstract class PageFragment : Fragment() {
 
@@ -26,5 +28,11 @@ abstract class PageFragment : Fragment() {
 
     open fun showPreviousStep(): Boolean {
         return false
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = Fade()
+        exitTransition = Fade()
     }
 }
