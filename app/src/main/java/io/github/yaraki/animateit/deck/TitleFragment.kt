@@ -60,7 +60,7 @@ class TitleFragment : PageFragment() {
             }
         }
         var currentVelocity = 0f
-        spring.addUpdateListener { animation, value, velocity ->
+        spring.addUpdateListener { _, _, velocity ->
             currentVelocity = velocity
         }
         var count = 0
