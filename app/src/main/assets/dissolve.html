@@ -1,0 +1,65 @@
+<!--
+  ~ Copyright 2020 Google LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+<link rel="stylesheet" href="styles/default.css">
+<script src="highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<pre style="font-size: 32pt;"><code class="kotlin">class Dissolve : Transition() {
+
+  companion object {
+    private const val PROPNAME_BITMAP = "bitmap"
+  }
+
+  override fun captureStartValues(values: TransitionValues) {
+    values.values[PROPNAME_BITMAP] = values.view.drawToBitmap()
+  }
+
+  override fun captureEndValues(values: TransitionValues) {
+    values.values[PROPNAME_BITMAP] = values.view.drawToBitmap()
+  }
+
+  override fun createAnimator(
+    sceneRoot: ViewGroup,
+    startValues: TransitionValues?,
+    endValues: TransitionValues?
+  ): Animator? {
+    if (startValues == null || endValues == null) {
+      return null
+    }
+    val startBitmap = startValues.values[PROPNAME_BITMAP] as Bitmap
+    val endBitmap = endValues.values[PROPNAME_BITMAP] as Bitmap
+
+    if (startBitmap.sameAs(endBitmap)) {
+      return null
+    }
+
+    val view = endValues.view
+    val startDrawable = BitmapDrawable(view.resources, startBitmap).apply {
+      setBounds(0, 0, startBitmap.width, startBitmap.height)
+    }
+
+    val overlay = view.overlay
+    overlay.add(startDrawable)
+
+    return ObjectAnimator
+      .ofInt(startDrawable, "alpha", 255, 0).apply {
+        doOnEnd {
+          overlay.remove(startDrawable)
+        }
+      }
+  }
+}
+</code></pre>

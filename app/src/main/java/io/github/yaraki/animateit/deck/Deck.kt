@@ -16,6 +16,8 @@
 
 package io.github.yaraki.animateit.deck
 
+import io.github.yaraki.animateit.R
+
 object Deck {
 
     val pages = listOf(
@@ -24,8 +26,19 @@ object Deck {
         ViewAnimationFragment,
         ObjectAnimatorFragment,
         MaterialIoFragment,
-        FadeCrossFadeFragment,
-        ViewOverlayFragment
+        DissolveCrossFadeFragment,
+        ViewOverlayFragment,
+        CodeFragment.DISSOLVE,
+        CodeFragment.DISSOLVE_USAGE,
+        DissolveFadeThroughFragment
+    )
+
+    val images = listOf(
+        R.drawable.cheese_1,
+        R.drawable.cheese_2,
+        R.drawable.cheese_3,
+        R.drawable.cheese_4,
+        R.drawable.cheese_5
     )
 
 }

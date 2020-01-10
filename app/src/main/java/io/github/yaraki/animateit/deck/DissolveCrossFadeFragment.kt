@@ -25,34 +25,24 @@ import androidx.lifecycle.lifecycleScope
 import androidx.transition.Fade
 import androidx.transition.TransitionManager
 import androidx.transition.TransitionSet
-import io.github.yaraki.animateit.R
-import io.github.yaraki.animateit.databinding.PageFadeCrossFadeBinding
+import io.github.yaraki.animateit.databinding.PageDissolveCrossFadeBinding
 import io.github.yaraki.animateit.transition.Dissolve
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class FadeCrossFadeFragment : PageFragment() {
+class DissolveCrossFadeFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = FadeCrossFadeFragment()
+        override fun create() = DissolveCrossFadeFragment()
     }
 
-    private val images = listOf(
-        R.drawable.cheese_1,
-        R.drawable.cheese_2,
-        R.drawable.cheese_3,
-        R.drawable.cheese_4,
-        R.drawable.cheese_5
-    )
-
-    private lateinit var binding: PageFadeCrossFadeBinding
+    private lateinit var binding: PageDissolveCrossFadeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = PageFadeCrossFadeBinding.inflate(inflater, container, false)
+        binding = PageDissolveCrossFadeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -62,7 +52,7 @@ class FadeCrossFadeFragment : PageFragment() {
             duration = 2500
             interpolator = FastOutSlowInInterpolator()
             addTransition(Dissolve().apply {
-                addTarget(binding.imageFade)
+                addTarget(binding.imageDissolve)
             })
             addTransition(Fade().apply {
                 addTarget(binding.imageCrossFade1)
@@ -73,7 +63,7 @@ class FadeCrossFadeFragment : PageFragment() {
             var count = 0
             while (true) {
                 TransitionManager.beginDelayedTransition(binding.root as ViewGroup, transition)
-                val drawableId = images[count % images.size]
+                val drawableId = Deck.images[count % Deck.images.size]
                 if (count % 2 == 0) {
                     binding.imageCrossFade1.run {
                         setImageResource(drawableId)
@@ -89,7 +79,9 @@ class FadeCrossFadeFragment : PageFragment() {
                 }
                 binding.drawableId = drawableId
                 count++
-                delay(3000)
+                if (count > 1) {
+                    delay(3000)
+                }
             }
         }
     }

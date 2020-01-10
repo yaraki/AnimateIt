@@ -32,28 +32,28 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/label_fade"
+            android:id="@+id/label_dissolve"
             style="@style/Widget.AnimateIt.TextView.Paragraph"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
             android:text="Dissolve (Fade)"
-            app:layout_constraintBottom_toTopOf="@+id/image_fade"
-            app:layout_constraintEnd_toEndOf="@id/image_fade"
-            app:layout_constraintStart_toStartOf="@id/image_fade"
+            app:layout_constraintBottom_toTopOf="@+id/image_dissolve"
+            app:layout_constraintEnd_toEndOf="@id/image_dissolve"
+            app:layout_constraintStart_toStartOf="@id/image_dissolve"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/image_fade"
-            android:layout_width="512dp"
-            android:layout_height="512dp"
+            android:id="@+id/image_dissolve"
+            android:layout_width="@dimen/image_large"
+            android:layout_height="@dimen/image_large"
             android:layout_margin="@dimen/spacing_large"
             android:scaleType="centerCrop"
             android:src="@{drawableId}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/image_cross_fade_1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_fade"
+            app:layout_constraintTop_toBottomOf="@id/label_dissolve"
             tools:src="@drawable/cheese_1" />
 
         <TextView
@@ -70,20 +70,20 @@
 
         <ImageView
             android:id="@+id/image_cross_fade_1"
-            android:layout_width="512dp"
-            android:layout_height="512dp"
+            android:layout_width="@dimen/image_large"
+            android:layout_height="@dimen/image_large"
             android:layout_margin="@dimen/spacing_large"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/image_fade"
+            app:layout_constraintStart_toEndOf="@id/image_dissolve"
             app:layout_constraintTop_toBottomOf="@id/label_cross_fade"
             tools:src="@drawable/cheese_1" />
 
         <ImageView
             android:id="@+id/image_cross_fade_2"
-            android:layout_width="512dp"
-            android:layout_height="512dp"
+            android:layout_width="@dimen/image_large"
+            android:layout_height="@dimen/image_large"
             android:layout_margin="@dimen/spacing_large"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="@id/image_cross_fade_1"
