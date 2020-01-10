@@ -27,8 +27,6 @@ import androidx.fragment.app.commitNow
 import androidx.lifecycle.observe
 import io.github.yaraki.animateit.deck.PageFragment
 
-private const val TAG_PAGE = "page"
-
 class DeckActivity : AppCompatActivity() {
 
     private val viewModel: DeckViewModel by viewModels()
@@ -49,6 +47,7 @@ class DeckActivity : AppCompatActivity() {
             KeyEvent.KEYCODE_DPAD_DOWN,
             KeyEvent.KEYCODE_DPAD_RIGHT,
             KeyEvent.KEYCODE_VOLUME_DOWN,
+            KeyEvent.KEYCODE_PAGE_DOWN,
             KeyEvent.KEYCODE_J -> {
                 showNext()
                 true
@@ -56,6 +55,7 @@ class DeckActivity : AppCompatActivity() {
             KeyEvent.KEYCODE_DPAD_UP,
             KeyEvent.KEYCODE_DPAD_LEFT,
             KeyEvent.KEYCODE_VOLUME_UP,
+            KeyEvent.KEYCODE_PAGE_UP,
             KeyEvent.KEYCODE_K -> {
                 showPrevious()
                 true

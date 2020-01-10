@@ -25,6 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:text="動かす"
         android:textSize="@dimen/text_deck_title" />
 
