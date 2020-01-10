@@ -20,8 +20,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebSettings
-import android.webkit.WebViewClient
 import io.github.yaraki.animateit.databinding.PageMaterialIoBinding
 
 class MaterialIoFragment : PageFragment() {
@@ -45,9 +43,7 @@ class MaterialIoFragment : PageFragment() {
         binding.web.settings.apply {
             javaScriptEnabled = true
             allowContentAccess = true
-            mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             setAppCacheEnabled(true)
-            useWideViewPort = true
         }
         binding.web.loadUrl("https://material.io/design/motion/#principles")
     }

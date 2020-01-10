@@ -14,12 +14,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/page_width"
         android:layout_height="@dimen/page_height"
-        android:orientation="vertical"
         android:padding="@dimen/spacing_large">
 
         <TextView
@@ -28,20 +28,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
-            android:text="ViewOverlay" />
+            android:text="ViewOverlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            style="@style/Widget.AnimateIt.TextView.Paragraph"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <WebView
+            android:id="@+id/web"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_margin="@dimen/spacing_large"
-            android:text="Can overlay `Drawable`s on top of a view" />
+            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <TextView
-            style="@style/Widget.AnimateIt.TextView.Paragraph"
+        <Button
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large" />
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/spacing_large"
+            android:padding="@dimen/spacing_medium"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/web" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
 </layout>
