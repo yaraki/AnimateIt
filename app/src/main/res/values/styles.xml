@@ -19,7 +19,9 @@
     <style name="Theme.AnimateIt" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_dark</item>
     </style>
 
     <style name="Widget.AnimateIt.TextView.Title" parent="Widget.MaterialComponents.TextView">

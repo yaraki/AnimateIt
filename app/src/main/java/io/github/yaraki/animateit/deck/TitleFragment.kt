@@ -21,7 +21,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
+import androidx.dynamicanimation.animation.FlingAnimation
+import androidx.dynamicanimation.animation.FloatPropertyCompat
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce
 import androidx.transition.Fade
 import io.github.yaraki.animateit.R
 
@@ -30,6 +33,8 @@ class TitleFragment : PageFragment() {
     companion object : Page {
         override fun create() = TitleFragment()
     }
+
+    private val texts = listOf("Animate It", "動かす")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +52,22 @@ class TitleFragment : PageFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<TextView>(R.id.title).setOnClickListener { v ->
-            v.animate().rotationBy(360f)
+        val title: TextView = view.findViewById(R.id.title)
+        val spring = SpringAnimation(title, FlingAnimation.ROTATION).apply {
+            spring = SpringForce(0f).apply {
+                stiffness = SpringForce.STIFFNESS_VERY_LOW
+                dampingRatio = SpringForce.DAMPING_RATIO_HIGH_BOUNCY
+            }
+        }
+        var currentVelocity = 0f
+        spring.addUpdateListener { animation, value, velocity ->
+            currentVelocity = velocity
+        }
+        var count = 0
+        title.setOnClickListener {
+            spring.setStartVelocity(currentVelocity + 3000f)
+            spring.start()
+            title.text = texts[count++ % texts.size]
         }
     }
 }
