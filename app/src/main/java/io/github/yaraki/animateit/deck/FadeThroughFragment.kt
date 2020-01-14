@@ -28,24 +28,26 @@ import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import io.github.yaraki.animateit.R
-import io.github.yaraki.animateit.databinding.PageDissolveFadeThroughBinding
-import io.github.yaraki.animateit.transition.*
+import io.github.yaraki.animateit.databinding.PageFadeThroughBinding
+import io.github.yaraki.animateit.transition.FAST_OUT_LINEAR_IN
+import io.github.yaraki.animateit.transition.FAST_OUT_SLOW_IN
+import io.github.yaraki.animateit.transition.LINEAR_OUT_SLOW_IN
 import kotlinx.coroutines.delay
 
-class DissolveFadeThroughFragment : PageFragment() {
+class FadeThroughFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = DissolveFadeThroughFragment()
+        override fun create() = FadeThroughFragment()
     }
 
-    private lateinit var binding: PageDissolveFadeThroughBinding
+    private lateinit var binding: PageFadeThroughBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = PageDissolveFadeThroughBinding.inflate(inflater, container, false)
+        binding = PageFadeThroughBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -54,10 +56,14 @@ class DissolveFadeThroughFragment : PageFragment() {
             .load(R.drawable.cheese_2)
             .transform(CircleCrop())
             .into(binding.content1Icon)
-        val dissolve = Dissolve().apply {
-            addTarget(binding.imageDissolve)
-            duration = 2500
+
+        binding.web.settings.run {
+            javaScriptEnabled = true
+            allowContentAccess = true
+            setAppCacheEnabled(true)
         }
+        binding.web.loadUrl("file:///android_asset/fade_through.html")
+
         val fadeThrough = TransitionSet().apply {
             addTransition(ChangeBounds().apply {
                 duration = 2500
@@ -75,13 +81,11 @@ class DissolveFadeThroughFragment : PageFragment() {
                 })
             })
         }
+
         lifecycleScope.launchWhenStarted {
             var count = 0
             while (true) {
-                TransitionManager.beginDelayedTransition(binding.paneDissolve, dissolve)
-                binding.imageDissolve.setImageResource(Deck.images[count++ % Deck.images.size])
-
-                TransitionManager.beginDelayedTransition(binding.paneFadeThrough, fadeThrough)
+                TransitionManager.beginDelayedTransition(binding.example, fadeThrough)
                 if (count % 2 == 0) {
                     binding.content1.visibility = View.GONE
                     binding.content2.visibility = View.VISIBLE
@@ -89,6 +93,7 @@ class DissolveFadeThroughFragment : PageFragment() {
                     binding.content1.visibility = View.VISIBLE
                     binding.content2.visibility = View.GONE
                 }
+                ++count
 
                 if (count > 1) {
                     delay(3000)
@@ -98,5 +103,4 @@ class DissolveFadeThroughFragment : PageFragment() {
             }
         }
     }
-
 }

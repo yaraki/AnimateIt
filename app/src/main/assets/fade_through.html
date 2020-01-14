@@ -12,17 +12,34 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
--->
+  -->
 <link rel="stylesheet" href="styles/github.css">
 <link rel="stylesheet" href="deck.css">
 <script src="highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<pre style="font-size: 32pt;"><code class="kotlin">val root: ViewGroup = ...
-val image: ImageView = ...
-val bitmap: Bitmap = ...
-val dissolve = Dissolve()
+<pre style="font-size: 32pt;"><code class="kotlin">val fadeThrough = TransitionSet().apply {
+  addTransition(ChangeBounds().apply {
+    duration = 250
+    interpolator = FAST_OUT_SLOW_IN
+  })
+  addTransition(TransitionSet().apply {
+    ordering = TransitionSet.ORDERING_SEQUENTIAL
+    addTransition(Fade(Fade.OUT).apply {
+      duration = 125
+      interpolator = FAST_OUT_LINEAR_IN
+    })
+    addTransition(Fade(Fade.IN).apply {
+      duration = 125
+      interpolator = LINEAR_OUT_SLOW_IN
+    })
+  })
+}
 
-TransitionManager.beginDelayedTransition(root, dissolve)
-image.setImageBitmap(bitmap)
+// ……
+TransitionManager.beginDelayedTransition(
+  container, fadeThrough
+)
+content1.visibility = View.VISIBLE
+content2.visibility = View.GONE
 </code></pre>

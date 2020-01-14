@@ -22,5 +22,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<FloatingActionButton>(R.id.start).setOnClickListener {
             startActivity(Intent(this, DeckActivity::class.java))
         }
+        startActivity(Intent(this, DeckActivity::class.java))
     }
 }

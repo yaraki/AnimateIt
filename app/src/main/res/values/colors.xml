@@ -25,5 +25,6 @@
     <color name="secondary_dark">#c30000</color>
     <color name="primary_text">#ffffff</color>
     <color name="secondary_text">#000000</color>
+    <color name="deck_background">#f6f6f6</color>
 
 </resources>

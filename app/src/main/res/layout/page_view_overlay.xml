@@ -35,11 +35,10 @@
 
         <WebView
             android:id="@+id/web"
+            style="@style/Widget.AnimateIt.WebView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/spacing_large"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             app:layout_constraintBottom_toTopOf="@id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

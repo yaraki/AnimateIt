@@ -81,6 +81,8 @@ class DissolveCrossFadeFragment : PageFragment() {
                 count++
                 if (count > 1) {
                     delay(3000)
+                } else {
+                    delay(1000)
                 }
             }
         }

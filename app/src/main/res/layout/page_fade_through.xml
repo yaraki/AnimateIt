@@ -14,76 +14,40 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="@dimen/page_width"
-        android:layout_height="@dimen/page_height"
-        android:orientation="horizontal">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_large">
 
-        <LinearLayout
-            android:id="@+id/pane_dissolve"
+        <TextView
+            android:id="@+id/title"
+            style="@style/Widget.AnimateIt.TextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:text="Fade-Through"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/example"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/spacing_large">
-
-            <TextView
-                android:id="@+id/label_dissolve"
-                style="@style/Widget.AnimateIt.TextView.Paragraph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_large"
-                android:text="Dissolve (Fade)"
-                app:layout_constraintBottom_toTopOf="@+id/image_dissolve"
-                app:layout_constraintEnd_toEndOf="@id/image_dissolve"
-                app:layout_constraintStart_toStartOf="@id/image_dissolve"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/image_dissolve"
-                android:layout_width="@dimen/image_large"
-                android:layout_height="@dimen/image_large"
-                android:layout_margin="@dimen/spacing_large"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/card_fade_through"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/label_dissolve"
-                tools:src="@drawable/cheese_1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/pane_fade_through"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/spacing_large">
-
-            <TextView
-                android:id="@+id/label_fade_through"
-                style="@style/Widget.AnimateIt.TextView.Paragraph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_large"
-                android:text="Fade-Through"
-                app:layout_constraintBottom_toTopOf="@+id/card_fade_through"
-                app:layout_constraintEnd_toEndOf="@id/card_fade_through"
-                app:layout_constraintStart_toStartOf="@id/card_fade_through"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/spacing_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/web"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_fade_through"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="@dimen/spacing_large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -157,9 +121,9 @@
                         android:id="@+id/content_2_description"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_large"
                         android:layout_marginTop="@dimen/spacing_large"
                         android:layout_marginRight="@dimen/spacing_large"
-                        android:layout_marginLeft="@dimen/spacing_large"
                         android:layout_marginBottom="@dimen/spacing_large"
                         android:ellipsize="end"
                         android:maxLines="5"
@@ -174,8 +138,19 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
+        </FrameLayout>
 
-    </LinearLayout>
+        <WebView
+            android:id="@+id/web"
+            style="@style/Widget.AnimateIt.WebView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/spacing_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

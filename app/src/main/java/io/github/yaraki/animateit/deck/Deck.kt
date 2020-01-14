@@ -30,7 +30,8 @@ object Deck {
         ViewOverlayFragment,
         CodeFragment.DISSOLVE,
         CodeFragment.DISSOLVE_USAGE,
-        DissolveFadeThroughFragment
+        DissolveFadeThroughFragment,
+        FadeThroughFragment
     )
 
     val images = listOf(
