@@ -50,8 +50,8 @@ class ViewOverlayFragment : PageFragment() {
         binding.web.loadUrl("file:///android_asset/view_overlay.html")
 
         ResourcesCompat.getDrawable(resources, R.mipmap.ic_launcher, null)?.let { drawable ->
-            drawable.setBounds(0, 0, 64, 64)
-            binding.button.overlay.add(drawable)
+            drawable.setBounds(100, 100, 400, 400)
+            binding.box.overlay.add(drawable)
         }
     }
 }
