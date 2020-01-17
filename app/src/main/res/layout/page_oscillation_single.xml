@@ -13,9 +13,8 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  -->
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,57 +28,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
-            android:text="Stagger"
+            android:text="Oscillation"
+            app:layout_constraintBottom_toTopOf="@id/card"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
-            android:layout_width="420dp"
-            android:layout_height="0dp"
+            android:layout_width="500dp"
+            android:layout_height="500dp"
             android:layout_margin="@dimen/spacing_large"
             android:descendantFocusability="blocksDescendants"
             android:focusable="false"
             android:focusableInTouchMode="false"
+            android:gravity="center"
+            android:padding="@dimen/spacing_large"
+            app:cardBackgroundColor="#c9c9c9"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/web"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:id="@+id/coordinator"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/board"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/spacing_large"
+                app:cardCornerRadius="2dp">
 
-                <com.google.android.material.appbar.AppBarLayout
-                    android:id="@+id/app_bar"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?attr/colorPrimaryVariant"
-                    android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+                    android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:background="?attr/colorPrimary"
-                        app:menu="@menu/stagger"
-                        app:title="Stagger" />
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:contentDescription="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cheese_1" />
 
-                </com.google.android.material.appbar.AppBarLayout>
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/spacing_large"
+                        android:layout_weight="1"
+                        android:text="Cheese"
+                        android:textAppearance="?attr/textAppearanceHeadline3" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:paddingTop="@dimen/spacing_small"
-                    android:paddingBottom="@dimen/spacing_small"
-                    android:scrollbarStyle="outsideOverlay"
-                    android:scrollbars="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                </LinearLayout>
 
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            </com.google.android.material.card.MaterialCardView>
+
 
         </com.google.android.material.card.MaterialCardView>
 

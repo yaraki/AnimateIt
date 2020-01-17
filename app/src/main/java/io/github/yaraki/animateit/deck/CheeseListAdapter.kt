@@ -27,7 +27,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import io.github.yaraki.animateit.R
 
-class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALLBACK) {
+internal class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheeseViewHolder {
         return CheeseViewHolder(parent)
@@ -38,7 +38,7 @@ class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALL
     }
 }
 
-class CheeseViewHolder(
+internal class CheeseViewHolder(
     parent: ViewGroup
 ) : RecyclerView.ViewHolder(
     LayoutInflater

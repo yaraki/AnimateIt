@@ -34,7 +34,9 @@ object Deck {
         FadeThroughFragment,
         StaggerFragment,
         CodeFragment.STAGGER,
-        StaggerUsageFragment
+        StaggerUsageFragment,
+        OscillationFragment,
+        OscillationSingleFragment
     )
 
     val images = listOf(

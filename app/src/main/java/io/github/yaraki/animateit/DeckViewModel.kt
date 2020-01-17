@@ -24,7 +24,7 @@ import io.github.yaraki.animateit.deck.Page
 
 class DeckViewModel : ViewModel() {
 
-    private var position = 0
+    private var position = Deck.pages.size - 1
 
     private val _page = MutableLiveData<Page>(Deck.pages[position])
     val page: LiveData<Page>

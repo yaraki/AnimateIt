@@ -20,7 +20,7 @@
     <dimen name="spacing_large">32dp</dimen>
 
     <dimen name="page_width">1920dp</dimen>
-    <dimen name="page_height">980dp</dimen>
+    <dimen name="page_height">1080dp</dimen>
     <dimen name="image_large">512dp</dimen>
     <dimen name="text_deck_title">256sp</dimen>
     <dimen name="text_title">96sp</dimen>

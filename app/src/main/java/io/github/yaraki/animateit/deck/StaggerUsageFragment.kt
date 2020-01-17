@@ -21,13 +21,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.transition.Transition
 import androidx.transition.TransitionListenerAdapter
 import androidx.transition.TransitionManager
 import io.github.yaraki.animateit.R
-import io.github.yaraki.animateit.databinding.PageStaggerBinding
 import io.github.yaraki.animateit.databinding.PageStaggerUsageBinding
+import kotlinx.coroutines.delay
 
 class StaggerUsageFragment : PageFragment() {
 
@@ -60,7 +61,7 @@ class StaggerUsageFragment : PageFragment() {
         val stagger = Stagger()
         val originalItemAnimator = binding.list.itemAnimator
 
-        val listener = object: TransitionListenerAdapter() {
+        val listener = object : TransitionListenerAdapter() {
             override fun onTransitionEnd(transition: Transition) {
                 binding.list.itemAnimator = originalItemAnimator
             }
@@ -87,6 +88,21 @@ class StaggerUsageFragment : PageFragment() {
                     true
                 }
                 else -> false
+            }
+        }
+
+        var count = 0
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            while (true) {
+                count++
+                stagger.duration = if (count % 2 == 0) {
+                    1500
+                } else {
+                    150
+                }
+                viewModel.empty()
+                viewModel.refresh()
+                delay(3500)
             }
         }
     }

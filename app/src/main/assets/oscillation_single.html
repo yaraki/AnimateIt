@@ -18,32 +18,29 @@
 <script src="highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<pre style="font-size: 32pt;"><code class="kotlin">class Stagger : Fade(IN) {
-
-  init {
-    propagation = SidePropagation().apply {
-      setSide(Gravity.BOTTOM)
-      setPropagationSpeed(1f)
-    }
-  }
-
-  override fun createAnimator(
-    sceneRoot: ViewGroup,
-    startValues: TransitionValues?,
-    endValues: TransitionValues?
-  ): Animator? {
-    val view = endValues?.view ?: return null
-    val fadeAnimator =
-      super.createAnimator(sceneRoot, startValues, endValues) ?:
-                                                       return null
-    return AnimatorSet().apply {
-      playTogether(
-        fadeAnimator,
-        ObjectAnimator.ofFloat(
-          view, View.TRANSLATION_Y, view.height * 0.5f, 0f
-        )
+<pre style="font-size: 32pt;"><code class="kotlin">
+val rotation = SpringAnimation(
+    view, SpringAnimation.ROTATION
+  )
+  .setSpring(
+    SpringForce()
+      .setFinalPosition(0f)
+      .setDampingRatio(
+        SpringForce.DAMPING_RATIO_HIGH_BOUNCY
       )
-    }
+      .setStiffness(
+        SpringForce.STIFFNESS_LOW
+      )
+  )
+  .addUpdateListener { _, _, velocity ->
+    currentVelocity = velocity
   }
-}
+
+// TouchListener, ScrollListener, etc
+val deltaX = ...
+rotation
+  .setStartVelocity(
+    currentVelocity - deltaX * MAGNITUDE
+  )
+  .start()
 </code></pre>
