@@ -31,7 +31,10 @@ object Deck {
         CodeFragment.DISSOLVE,
         CodeFragment.DISSOLVE_USAGE,
         DissolveFadeThroughFragment,
-        FadeThroughFragment
+        FadeThroughFragment,
+        StaggerFragment,
+        CodeFragment.STAGGER,
+        StaggerUsageFragment
     )
 
     val images = listOf(

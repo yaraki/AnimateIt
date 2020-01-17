@@ -43,6 +43,7 @@ class CodeFragment : PageFragment() {
 
         val DISSOLVE = codePage("dissolve.html")
         val DISSOLVE_USAGE = codePage("dissolve_usage.html", "Dissolve Usage")
+        val STAGGER = codePage("stagger.html")
     }
 
     private lateinit var binding: PageCodeBinding
