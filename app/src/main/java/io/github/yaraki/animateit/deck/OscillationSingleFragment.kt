@@ -22,12 +22,9 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.view.doOnLayout
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
-import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageOscillationSingleBinding
 
 class OscillationSingleFragment : PageFragment() {

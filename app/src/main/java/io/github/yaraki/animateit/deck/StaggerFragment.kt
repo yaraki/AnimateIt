@@ -52,7 +52,7 @@ class StaggerFragment : PageFragment() {
         val stagger = Stagger()
         val originalItemAnimator = binding.list.itemAnimator
 
-        val listener = object: TransitionListenerAdapter() {
+        val listener = object : TransitionListenerAdapter() {
             override fun onTransitionEnd(transition: Transition) {
                 binding.list.itemAnimator = originalItemAnimator
             }

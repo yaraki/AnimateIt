@@ -22,7 +22,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.dynamicanimation.animation.FlingAnimation
-import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.transition.Fade
