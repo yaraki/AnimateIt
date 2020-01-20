@@ -82,7 +82,7 @@ class DissolveFadeThroughFragment : PageFragment() {
             var count = 0
             while (true) {
                 TransitionManager.beginDelayedTransition(binding.paneDissolve, dissolve)
-                binding.imageDissolve.setImageResource(Deck.images[count++ % Deck.images.size])
+                binding.imageDissolve.setImageResource(Cheese.IMAGES[count++ % Cheese.IMAGES.size])
 
                 TransitionManager.beginDelayedTransition(binding.paneFadeThrough, fadeThrough)
                 if (count % 2 == 0) {

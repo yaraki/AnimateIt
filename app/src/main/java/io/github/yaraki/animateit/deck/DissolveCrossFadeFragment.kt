@@ -63,7 +63,7 @@ class DissolveCrossFadeFragment : PageFragment() {
             var count = 0
             while (true) {
                 TransitionManager.beginDelayedTransition(binding.root as ViewGroup, transition)
-                val drawableId = Deck.images[count % Deck.images.size]
+                val drawableId = Cheese.IMAGES[count % Cheese.IMAGES.size]
                 if (count % 2 == 0) {
                     binding.imageCrossFade1.run {
                         setImageResource(drawableId)
