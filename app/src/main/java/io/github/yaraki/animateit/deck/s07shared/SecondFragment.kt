@@ -42,6 +42,7 @@ class SecondFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = TransitionSet().apply {
+            duration = 300
             addTransition(ChangeBounds())
             addTransition(ChangeTransform())
             addTransition(ChangeImageTransform())

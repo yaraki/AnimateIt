@@ -30,6 +30,10 @@ import io.github.yaraki.animateit.deck.Cheese
 
 class FirstFragment : Fragment() {
 
+    companion object {
+        const val ARG_NAV = "no_nav"
+    }
+
     private lateinit var binding: FirstFragmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,15 +59,18 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val images =
             listOf(binding.image1, binding.image2, binding.image3, binding.image4, binding.image5)
+        val nav = arguments?.getBoolean(ARG_NAV, true) ?: true
         images.forEachIndexed { i, iv ->
             ViewCompat.setTransitionName(iv, "image${i + 1}")
             iv.setOnClickListener { v ->
-                v.findNavController().navigate(
-                    FirstFragmentDirections.actionFirstToSecond(Cheese.IMAGES[i]),
-                    FragmentNavigatorExtras(
-                        v to SecondFragment.TRANSITION_NAME_IMAGE
+                if (nav) {
+                    v.findNavController().navigate(
+                        FirstFragmentDirections.actionFirstToSecond(Cheese.IMAGES[i]),
+                        FragmentNavigatorExtras(
+                            v to SecondFragment.TRANSITION_NAME_IMAGE
+                        )
                     )
-                )
+                }
             }
         }
     }
