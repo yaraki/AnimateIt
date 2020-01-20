@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s05stagger
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -26,8 +26,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import io.github.yaraki.animateit.R
+import io.github.yaraki.animateit.deck.Cheese
 
-internal class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(Cheese.DIFF_CALLBACK) {
+internal class CheeseListAdapter : ListAdapter<Cheese, CheeseViewHolder>(
+    Cheese.DIFF_CALLBACK
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheeseViewHolder {
         return CheeseViewHolder(parent)

@@ -16,23 +16,50 @@
 
 package io.github.yaraki.animateit.deck
 
+import io.github.yaraki.animateit.deck.s01intro.TitleFragment
+import io.github.yaraki.animateit.deck.s02api.AllApisFragment
+import io.github.yaraki.animateit.deck.s02api.MaterialIoFragment
+import io.github.yaraki.animateit.deck.s02api.ObjectAnimatorFragment
+import io.github.yaraki.animateit.deck.s02api.ViewAnimationFragment
+import io.github.yaraki.animateit.deck.s03dissolve.DissolveCrossFadeFragment
+import io.github.yaraki.animateit.deck.s03dissolve.ViewOverlayFragment
+import io.github.yaraki.animateit.deck.s04fadethrough.DissolveFadeThroughFragment
+import io.github.yaraki.animateit.deck.s04fadethrough.FadeThroughFragment
+import io.github.yaraki.animateit.deck.s05stagger.StaggerFragment
+import io.github.yaraki.animateit.deck.s05stagger.StaggerUsageFragment
+import io.github.yaraki.animateit.deck.s06oscillation.OscillationFragment
+import io.github.yaraki.animateit.deck.s06oscillation.OscillationListFragment
+import io.github.yaraki.animateit.deck.s06oscillation.OscillationSingleFragment
+
 object Deck {
 
     val pages = listOf(
+
+        // intro
         TitleFragment,
+
+        // api
         AllApisFragment,
         ViewAnimationFragment,
         ObjectAnimatorFragment,
         MaterialIoFragment,
+
+        // dissolve
         DissolveCrossFadeFragment,
         ViewOverlayFragment,
         CodeFragment.DISSOLVE,
         CodeFragment.DISSOLVE_USAGE,
+
+        // fade-through
         DissolveFadeThroughFragment,
         FadeThroughFragment,
+
+        // stagger
         StaggerFragment,
         CodeFragment.STAGGER,
         StaggerUsageFragment,
+
+        // oscillation
         OscillationFragment,
         OscillationSingleFragment,
         OscillationListFragment

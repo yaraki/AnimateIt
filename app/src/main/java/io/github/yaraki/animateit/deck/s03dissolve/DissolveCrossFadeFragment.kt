@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s03dissolve
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,13 +26,17 @@ import androidx.transition.Fade
 import androidx.transition.TransitionManager
 import androidx.transition.TransitionSet
 import io.github.yaraki.animateit.databinding.PageDissolveCrossFadeBinding
+import io.github.yaraki.animateit.deck.Cheese
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 import io.github.yaraki.animateit.transition.Dissolve
 import kotlinx.coroutines.delay
 
 class DissolveCrossFadeFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = DissolveCrossFadeFragment()
+        override fun create() =
+            DissolveCrossFadeFragment()
     }
 
     private lateinit var binding: PageDissolveCrossFadeBinding

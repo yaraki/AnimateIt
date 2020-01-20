@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s06oscillation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -28,9 +28,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import io.github.yaraki.animateit.R
+import io.github.yaraki.animateit.deck.Cheese
 
 internal class CheeseBoardAdapter :
-    ListAdapter<Cheese, CheeseBoardViewHolder>(Cheese.DIFF_CALLBACK) {
+    ListAdapter<Cheese, CheeseBoardViewHolder>(
+        Cheese.DIFF_CALLBACK
+    ) {
 
     /**
      * A [RecyclerView.OnScrollListener] to be set to the RecyclerView. This tilts the visible
@@ -112,7 +115,9 @@ internal class CheeseBoardAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheeseBoardViewHolder {
-        return CheeseBoardViewHolder(parent).apply {
+        return CheeseBoardViewHolder(
+            parent
+        ).apply {
             // The rotation pivot should be at the center of the top edge.
             itemView.doOnLayout { v -> v.pivotX = v.width / 2f }
             itemView.pivotY = 0f

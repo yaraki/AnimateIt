@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s06oscillation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -26,11 +26,14 @@ import androidx.core.view.doOnLayout
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import io.github.yaraki.animateit.databinding.PageOscillationSingleBinding
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 
 class OscillationSingleFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = OscillationSingleFragment()
+        override fun create() =
+            OscillationSingleFragment()
     }
 
     private lateinit var binding: PageOscillationSingleBinding

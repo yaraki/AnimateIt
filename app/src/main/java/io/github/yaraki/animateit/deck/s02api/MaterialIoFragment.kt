@@ -14,25 +14,40 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s02api
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import io.github.yaraki.animateit.R
+import io.github.yaraki.animateit.databinding.PageMaterialIoBinding
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 
-class ObjectAnimatorFragment : PageFragment() {
+class MaterialIoFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = ObjectAnimatorFragment()
+        override fun create() =
+            MaterialIoFragment()
     }
+
+    private lateinit var binding: PageMaterialIoBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.page_object_animator, container, false)
+        binding = PageMaterialIoBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.web.settings.apply {
+            javaScriptEnabled = true
+            allowContentAccess = true
+            setAppCacheEnabled(true)
+        }
+        binding.web.loadUrl("https://material.io/design/motion/#principles")
     }
 }

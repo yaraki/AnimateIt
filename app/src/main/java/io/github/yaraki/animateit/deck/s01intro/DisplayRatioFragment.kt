@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s01intro
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.github.yaraki.animateit.R
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 
-class AllApisFragment : PageFragment() {
+class DisplayRatioFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = AllApisFragment()
+        override fun create() =
+            DisplayRatioFragment()
     }
 
     override fun onCreateView(
@@ -33,6 +36,6 @@ class AllApisFragment : PageFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.page_all_apis, container, false)
+        return inflater.inflate(R.layout.page_first, container, false)
     }
 }

@@ -14,37 +14,28 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s02api
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import io.github.yaraki.animateit.databinding.PageOscillationBinding
+import io.github.yaraki.animateit.R
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 
-class OscillationFragment : PageFragment() {
+class ViewAnimationFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = OscillationFragment()
+        override fun create() =
+            ViewAnimationFragment()
     }
-
-    private lateinit var binding: PageOscillationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = PageOscillationBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = CheeseBoardAdapter()
-        binding.list.adapter = adapter
-        binding.list.addOnScrollListener(adapter.onScrollListener)
-        binding.list.edgeEffectFactory = adapter.edgeEffectFactory
-
-        adapter.submitList(Cheese.ALL.filter { it.name.length < 10 }.take(15))
+        return inflater.inflate(R.layout.page_view_animation, container, false)
     }
 }

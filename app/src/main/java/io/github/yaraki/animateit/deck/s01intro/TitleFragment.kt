@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s01intro
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,11 +26,14 @@ import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.transition.Fade
 import io.github.yaraki.animateit.R
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 
 class TitleFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = TitleFragment()
+        override fun create() =
+            TitleFragment()
     }
 
     private val texts = listOf("Animate It", "動かす")

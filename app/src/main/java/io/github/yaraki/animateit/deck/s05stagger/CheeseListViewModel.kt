@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s05stagger
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import io.github.yaraki.animateit.deck.Cheese
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

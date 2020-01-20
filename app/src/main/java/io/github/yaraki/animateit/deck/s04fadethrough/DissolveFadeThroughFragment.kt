@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s04fadethrough
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,6 +29,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageDissolveFadeThroughBinding
+import io.github.yaraki.animateit.deck.Cheese
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 import io.github.yaraki.animateit.transition.Dissolve
 import io.github.yaraki.animateit.transition.FAST_OUT_LINEAR_IN
 import io.github.yaraki.animateit.transition.FAST_OUT_SLOW_IN
@@ -38,7 +41,8 @@ import kotlinx.coroutines.delay
 class DissolveFadeThroughFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = DissolveFadeThroughFragment()
+        override fun create() =
+            DissolveFadeThroughFragment()
     }
 
     private lateinit var binding: PageDissolveFadeThroughBinding

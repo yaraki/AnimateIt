@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s05stagger
 
 import android.animation.Animator
 import android.animation.AnimatorSet

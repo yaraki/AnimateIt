@@ -14,29 +14,30 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck
+package io.github.yaraki.animateit.deck.s05stagger
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.transition.Transition
 import androidx.transition.TransitionListenerAdapter
 import androidx.transition.TransitionManager
 import io.github.yaraki.animateit.R
-import io.github.yaraki.animateit.databinding.PageStaggerUsageBinding
-import kotlinx.coroutines.delay
+import io.github.yaraki.animateit.databinding.PageStaggerBinding
+import io.github.yaraki.animateit.deck.Page
+import io.github.yaraki.animateit.deck.PageFragment
 
-class StaggerUsageFragment : PageFragment() {
+class StaggerFragment : PageFragment() {
 
     companion object : Page {
-        override fun create() = StaggerUsageFragment()
+        override fun create() =
+            StaggerFragment()
     }
 
-    private lateinit var binding: PageStaggerUsageBinding
+    private lateinit var binding: PageStaggerBinding
     private val viewModel: CheeseListViewModel by viewModels()
 
     override fun onCreateView(
@@ -44,19 +45,13 @@ class StaggerUsageFragment : PageFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = PageStaggerUsageBinding.inflate(inflater, container, false)
+        binding = PageStaggerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.web.settings.run {
-            javaScriptEnabled = true
-            allowContentAccess = true
-            setAppCacheEnabled(true)
-        }
-        binding.web.loadUrl("file:///android_asset/stagger_usage.html")
-
-        val adapter = CheeseListAdapter()
+        val adapter =
+            CheeseListAdapter()
         binding.list.adapter = adapter
         val stagger = Stagger()
         val originalItemAnimator = binding.list.itemAnimator
@@ -88,21 +83,6 @@ class StaggerUsageFragment : PageFragment() {
                     true
                 }
                 else -> false
-            }
-        }
-
-        var count = 0
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            while (true) {
-                count++
-                stagger.duration = if (count % 2 == 0) {
-                    1500
-                } else {
-                    150
-                }
-                viewModel.empty()
-                viewModel.refresh()
-                delay(3500)
             }
         }
     }
