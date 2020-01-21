@@ -25,4 +25,5 @@
     <dimen name="text_deck_title">256sp</dimen>
     <dimen name="text_title">96sp</dimen>
     <dimen name="text_body">64sp</dimen>
+    <dimen name="slide_distance">100dp</dimen>
 </resources>

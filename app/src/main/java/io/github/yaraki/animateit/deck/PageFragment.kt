@@ -16,11 +16,7 @@
 
 package io.github.yaraki.animateit.deck
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.transition.Fade
-import io.github.yaraki.animateit.transition.FAST_OUT_LINEAR_IN
-import io.github.yaraki.animateit.transition.LINEAR_OUT_SLOW_IN
 
 abstract class PageFragment : Fragment() {
 
@@ -30,18 +26,5 @@ abstract class PageFragment : Fragment() {
 
     open fun showPreviousStep(): Boolean {
         return false
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        exitTransition = Fade().apply {
-            interpolator = FAST_OUT_LINEAR_IN
-            duration = 200
-        }
-        enterTransition = Fade().apply {
-            interpolator = LINEAR_OUT_SLOW_IN
-            startDelay = 200
-            duration = 300
-        }
     }
 }

@@ -18,27 +18,55 @@ package io.github.yaraki.animateit
 
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
-import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commitNow
-import androidx.lifecycle.observe
+import androidx.transition.Transition
+import io.github.yaraki.animateit.deck.Deck
 import io.github.yaraki.animateit.deck.PageFragment
+import io.github.yaraki.animateit.deck.SlideFade
+import io.github.yaraki.animateit.transition.FAST_OUT_LINEAR_IN
+import io.github.yaraki.animateit.transition.LINEAR_OUT_SLOW_IN
 
 class DeckActivity : AppCompatActivity() {
 
-    private val viewModel: DeckViewModel by viewModels()
+    private var position = Deck.pages.size - 1
+
+    private lateinit var forwardExit: Transition
+    private lateinit var forwardEnter: Transition
+    private lateinit var backwardExit: Transition
+    private lateinit var backwardEnter: Transition
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.deck_activity)
 
-        viewModel.page.observe(this) { page ->
-            supportFragmentManager.commitNow {
-                replace(R.id.container, page.create())
-            }
+        val distance = resources.getDimensionPixelSize(R.dimen.slide_distance).toFloat()
+        forwardExit = SlideFade(Gravity.START, distance).apply {
+            interpolator = FAST_OUT_LINEAR_IN
+            duration = 100
+        }
+        forwardEnter = SlideFade(Gravity.START, distance).apply {
+            interpolator = LINEAR_OUT_SLOW_IN
+            startDelay = 200
+            duration = 150
+        }
+        backwardExit = SlideFade(Gravity.END, distance).apply {
+            interpolator = FAST_OUT_LINEAR_IN
+            duration = 100
+        }
+        backwardEnter = SlideFade(Gravity.END, distance).apply {
+            interpolator = LINEAR_OUT_SLOW_IN
+            startDelay = 200
+            duration = 150
+        }
+
+        val page = Deck.pages[position]
+        supportFragmentManager.commitNow {
+            replace(R.id.container, page.create())
         }
     }
 
@@ -72,19 +100,37 @@ class DeckActivity : AppCompatActivity() {
     }
 
     private fun showNext() {
-        val page = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
-        if (page != null && page.showNextStep()) {
+        val current = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
+        if (current != null && current.showNextStep()) {
             return
         }
-        viewModel.showNextPage()
+        if (position + 1 >= Deck.pages.size) {
+            return
+        }
+        val page = Deck.pages[++position]
+        val fragment = page.create()
+        current?.exitTransition = forwardExit
+        fragment.enterTransition = forwardEnter
+        supportFragmentManager.commitNow {
+            replace(R.id.container, fragment)
+        }
     }
 
     private fun showPrevious() {
-        val page = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
-        if (page != null && page.showPreviousStep()) {
+        val current = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
+        if (current != null && current.showPreviousStep()) {
             return
         }
-        viewModel.showPreviousPage()
+        if (position == 0) {
+            return
+        }
+        val page = Deck.pages[--position]
+        val fragment = page.create()
+        current?.exitTransition = backwardExit
+        fragment.enterTransition = backwardEnter
+        supportFragmentManager.commitNow {
+            replace(R.id.container, fragment)
+        }
     }
 
     private fun hideSystemUi() {
