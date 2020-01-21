@@ -30,6 +30,7 @@ import io.github.yaraki.animateit.deck.s05stagger.StaggerUsageFragment
 import io.github.yaraki.animateit.deck.s06oscillation.OscillationFragment
 import io.github.yaraki.animateit.deck.s06oscillation.OscillationListFragment
 import io.github.yaraki.animateit.deck.s06oscillation.OscillationSingleFragment
+import io.github.yaraki.animateit.deck.s07shared.SharedCodeFragment
 import io.github.yaraki.animateit.deck.s07shared.SharedFragment
 import io.github.yaraki.animateit.deck.s07shared.SharedPairFragment
 
@@ -68,6 +69,7 @@ object Deck {
 
         // shared
         SharedFragment,
-        SharedPairFragment
+        SharedPairFragment,
+        SharedCodeFragment
     )
 }
