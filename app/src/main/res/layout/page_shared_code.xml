@@ -25,7 +25,8 @@
         android:layout_height="match_parent"
         android:descendantFocusability="blocksDescendants"
         android:focusable="false"
-        android:focusableInTouchMode="false">
+        android:focusableInTouchMode="false"
+        android:padding="@dimen/spacing_large">
 
         <TextView
             android:id="@+id/title"

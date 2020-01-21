@@ -36,12 +36,12 @@ abstract class PageFragment : Fragment() {
         super.onCreate(savedInstanceState)
         exitTransition = Fade().apply {
             interpolator = FAST_OUT_LINEAR_IN
-            duration = 100
+            duration = 200
         }
         enterTransition = Fade().apply {
             interpolator = LINEAR_OUT_SLOW_IN
-            startDelay = 100
-            duration = 150
+            startDelay = 200
+            duration = 300
         }
     }
 }

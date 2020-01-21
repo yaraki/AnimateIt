@@ -26,13 +26,15 @@
         android:descendantFocusability="blocksDescendants"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_large">
 
         <TextView
             android:id="@+id/label_first"
             style="@style/Widget.AnimateIt.TextView.Paragraph"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
             android:text="First Fragment"
             app:layout_constraintBottom_toTopOf="@id/card_first"
             app:layout_constraintEnd_toEndOf="@id/card_first"
@@ -140,6 +142,7 @@
             style="@style/Widget.AnimateIt.TextView.Paragraph"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
             android:text="Second Fragment"
             app:layout_constraintBottom_toTopOf="@id/card_second"
             app:layout_constraintEnd_toEndOf="@id/card_second"
