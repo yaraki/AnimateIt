@@ -13,7 +13,7 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
--->
+  -->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -69,16 +69,39 @@
             app:layout_constraintBottom_toBottomOf="@id/card"
             app:layout_constraintStart_toEndOf="@id/card" />
 
-        <WebView
-            android:id="@+id/web"
-            style="@style/Widget.AnimateIt.WebView"
+        <LinearLayout
+            android:id="@+id/summary"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/spacing_large"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/back"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="Set a unique transition name on every shared element." />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="Use postponeEnterTransition() and startPostponedEnterTransition() for async image loading, etc." />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="Set exit (and reenter) transitions for the first fragment, enter (and return) transitions for the second fragment." />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

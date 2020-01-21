@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2020 Google LLC
   ~
@@ -12,20 +13,11 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  -->
-<link rel="stylesheet" href="styles/github.css">
-<link rel="stylesheet" href="deck.css">
-<script src="highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<pre style="font-size: 32pt;"><code class="kotlin">list.itemAnimator = null
-val stagger = Stagger()
-
-viewModel.cheeses.observe(this) { cheeses ->
-  adapter.submitList(cheeses) {
-    TransitionManager.beginDelayedTransition(
-      list, stagger
-    )
-  }
-}
-</code></pre>
+-->
+<rotate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/arrow_backward"
+    android:fromDegrees="180"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="0" />
