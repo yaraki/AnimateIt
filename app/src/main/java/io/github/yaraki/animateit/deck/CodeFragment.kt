@@ -42,7 +42,7 @@ class CodeFragment : PageFragment() {
         }
 
         val DISSOLVE = codePage("dissolve.html")
-        val DISSOLVE_USAGE = codePage("dissolve_usage.html", "Dissolve Usage")
+        val DISSOLVE_USAGE = codePage("dissolve_usage.html", "Dissolve")
         val STAGGER = codePage("stagger.html")
     }
 

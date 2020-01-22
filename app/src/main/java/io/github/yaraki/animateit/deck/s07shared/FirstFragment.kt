@@ -62,8 +62,8 @@ class FirstFragment : Fragment() {
         val nav = arguments?.getBoolean(ARG_NAV, true) ?: true
         images.forEachIndexed { i, iv ->
             ViewCompat.setTransitionName(iv, "image${i + 1}")
-            iv.setOnClickListener { v ->
-                if (nav) {
+            if (nav) {
+                iv.setOnClickListener { v ->
                     v.findNavController().navigate(
                         FirstFragmentDirections.actionFirstToSecond(Cheese.IMAGES[i]),
                         FragmentNavigatorExtras(

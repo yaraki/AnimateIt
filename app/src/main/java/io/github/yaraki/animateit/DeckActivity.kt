@@ -51,7 +51,7 @@ class DeckActivity : AppCompatActivity() {
         }
         forwardEnter = SlideFade(Gravity.START, distance).apply {
             interpolator = LINEAR_OUT_SLOW_IN
-            startDelay = 200
+            startDelay = 100
             duration = 150
         }
         backwardExit = SlideFade(Gravity.END, distance).apply {
@@ -60,14 +60,11 @@ class DeckActivity : AppCompatActivity() {
         }
         backwardEnter = SlideFade(Gravity.END, distance).apply {
             interpolator = LINEAR_OUT_SLOW_IN
-            startDelay = 200
+            startDelay = 100
             duration = 150
         }
 
-        val page = Deck.pages[position]
-        supportFragmentManager.commitNow {
-            replace(R.id.container, page.create())
-        }
+        showCurrentPage()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -88,6 +85,16 @@ class DeckActivity : AppCompatActivity() {
                 showPrevious()
                 true
             }
+            KeyEvent.KEYCODE_MOVE_HOME -> {
+                position = 0
+                showCurrentPage()
+                true
+            }
+            KeyEvent.KEYCODE_MOVE_END -> {
+                position = Deck.pages.size - 1
+                showCurrentPage()
+                true
+            }
             else -> super.onKeyDown(keyCode, event)
         }
     }
@@ -96,6 +103,13 @@ class DeckActivity : AppCompatActivity() {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
             hideSystemUi()
+        }
+    }
+
+    private fun showCurrentPage() {
+        val page = Deck.pages[position]
+        supportFragmentManager.commitNow {
+            replace(R.id.container, page.create())
         }
     }
 
