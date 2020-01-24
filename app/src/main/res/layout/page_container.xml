@@ -13,14 +13,12 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  -->
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:descendantFocusability="blocksDescendants"
@@ -34,20 +32,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
-            android:text="Shared Element"
-            app:layout_constraintBottom_toTopOf="@id/card"
-            app:layout_constraintEnd_toEndOf="@id/card"
+            android:text="Material Container"
+            app:layout_constraintEnd_toStartOf="@id/card"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
-            android:layout_width="480dp"
+            android:layout_width="600dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/spacing_large"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintTop_toTopOf="parent"
             tools:background="#ccc">
 
             <androidx.fragment.app.FragmentContainerView
@@ -55,7 +53,12 @@
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:navGraph="@navigation/shared" />
+                app:navGraph="@navigation/container" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@color/dark_scrim" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -64,45 +67,20 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_margin="@dimen/spacing_large"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/ic_arrow_back"
             app:layout_constraintBottom_toBottomOf="@id/card"
             app:layout_constraintStart_toEndOf="@id/card" />
 
-        <LinearLayout
-            android:id="@+id/summary"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+        <Switch
+            android:id="@+id/slow"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:layout_margin="@dimen/spacing_large"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/back"
             app:layout_constraintStart_toEndOf="@id/back"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                style="@style/Widget.AnimateIt.TextView.Paragraph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_medium"
-                android:text="Set a unique transition name on every view that can potentially be a shared element." />
-
-            <TextView
-                style="@style/Widget.AnimateIt.TextView.Paragraph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_medium"
-                android:text="Use postponeEnterTransition() and startPostponedEnterTransition() for async image loading, etc." />
-
-            <TextView
-                style="@style/Widget.AnimateIt.TextView.Paragraph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_medium"
-                android:text="Set exit (and reenter) transitions for the first fragment, enter (and return) transitions for the second fragment." />
-
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="@id/back" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

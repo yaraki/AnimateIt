@@ -13,19 +13,23 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
--->
-<resources>
-    <color name="accent">#D81B60</color>
+  -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <color name="primary">#5d4037</color>
-    <color name="primary_light">#8b6b61</color>
-    <color name="primary_dark">#321911</color>
-    <color name="secondary">#ff3d00</color>
-    <color name="secondary_light">#ff7539</color>
-    <color name="secondary_dark">#c30000</color>
-    <color name="primary_text">#ffffff</color>
-    <color name="secondary_text">#000000</color>
-    <color name="deck_background">#f6f6f6</color>
-    <color name="dark_scrim">#66333333</color>
+    <item
+        android:icon="@drawable/ic_share"
+        android:title="Share"
+        app:showAsAction="ifRoom" />
 
-</resources>
+    <item
+        android:icon="@drawable/ic_favorite"
+        android:title="Favorite"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:icon="@drawable/ic_bookmark"
+        android:title="Bookmark"
+        app:showAsAction="ifRoom" />
+
+</menu>

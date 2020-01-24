@@ -14,37 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit
+package io.github.yaraki.animateit.deck
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.github.yaraki.animateit.deck.Deck
-import io.github.yaraki.animateit.deck.Page
 
 class DeckViewModel : ViewModel() {
 
-    private var position = Deck.pages.size - 1
+    private val _slowContainer = MutableLiveData<Boolean>()
 
-    private val _page = MutableLiveData<Page>(Deck.pages[position])
-    val page: LiveData<Page>
-        get() = _page
+    val slowContainer: LiveData<Boolean>
+        get() = _slowContainer
 
-    fun showNextPage(): Boolean {
-        if (position + 1 >= Deck.pages.size) {
-            return false
-        }
-        position++
-        _page.value = Deck.pages[position]
-        return true
-    }
-
-    fun showPreviousPage(): Boolean {
-        if (position == 0) {
-            return false
-        }
-        position--
-        _page.value = Deck.pages[position]
-        return true
+    fun setSlowContainer(slow: Boolean) {
+        _slowContainer.value = slow
     }
 }

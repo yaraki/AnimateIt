@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Google LLC
+  ~ Copyright 2019 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,18 +14,14 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<resources>
-    <color name="accent">#D81B60</color>
-
-    <color name="primary">#5d4037</color>
-    <color name="primary_light">#8b6b61</color>
-    <color name="primary_dark">#321911</color>
-    <color name="secondary">#ff3d00</color>
-    <color name="secondary_light">#ff7539</color>
-    <color name="secondary_dark">#c30000</color>
-    <color name="primary_text">#ffffff</color>
-    <color name="secondary_text">#000000</color>
-    <color name="deck_background">#f6f6f6</color>
-    <color name="dark_scrim">#66333333</color>
-
-</resources>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:tint="?attr/colorControlNormal"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M17,3H7c-1.1,0 -1.99,0.9 -1.99,2L5,21l7,-3 7,3V5c0,-1.1 -0.9,-2 -2,-2z" />
+</vector>

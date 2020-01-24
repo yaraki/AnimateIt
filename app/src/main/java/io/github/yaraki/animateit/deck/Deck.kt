@@ -34,6 +34,8 @@ import io.github.yaraki.animateit.deck.s07shared.SharedCodeFragment
 import io.github.yaraki.animateit.deck.s07shared.SharedFragment
 import io.github.yaraki.animateit.deck.s07shared.SharedPairFragment
 import io.github.yaraki.animateit.deck.s07shared.SharedSummaryFragment
+import io.github.yaraki.animateit.deck.s08container.ContainerFragment
+import io.github.yaraki.animateit.deck.s08container.ContainerPairFragment
 
 object Deck {
 
@@ -72,6 +74,10 @@ object Deck {
         SharedFragment,
         SharedPairFragment,
         SharedCodeFragment,
-        SharedSummaryFragment
+        SharedSummaryFragment,
+
+        // container
+        ContainerPairFragment,
+        ContainerFragment
     )
 }
