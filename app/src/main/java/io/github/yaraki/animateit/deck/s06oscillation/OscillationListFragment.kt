@@ -50,6 +50,6 @@ class OscillationListFragment : PageFragment() {
         binding.list.addOnScrollListener(adapter.onScrollListener)
         binding.list.edgeEffectFactory = adapter.edgeEffectFactory
 
-        adapter.submitList(Cheese.ALL.filter { it.name.length < 10 }.take(15))
+        adapter.submitList(Cheese.ALL.filter { it.name.length == 9 }.take(15))
     }
 }

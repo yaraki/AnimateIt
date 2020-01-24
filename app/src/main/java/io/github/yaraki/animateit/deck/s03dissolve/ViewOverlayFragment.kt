@@ -16,6 +16,7 @@
 
 package io.github.yaraki.animateit.deck.s03dissolve
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -52,9 +53,11 @@ class ViewOverlayFragment : PageFragment() {
         }
         binding.web.loadUrl("file:///android_asset/view_overlay.html")
 
-        ResourcesCompat.getDrawable(resources, R.mipmap.ic_launcher, null)?.let { drawable ->
-            drawable.setBounds(100, 100, 400, 400)
-            binding.box.overlay.add(drawable)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            ResourcesCompat.getDrawable(resources, R.mipmap.ic_launcher, null)?.let { drawable ->
+                drawable.setBounds(100, 100, 400, 400)
+                binding.box.overlay.add(drawable)
+            }
         }
     }
 }

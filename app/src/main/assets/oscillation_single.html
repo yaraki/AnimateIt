@@ -18,8 +18,7 @@
 <script src="highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<pre style="font-size: 32pt;"><code class="kotlin">
-val rotation = SpringAnimation(
+<pre style="font-size: 32pt;"><code class="kotlin">val rotation = SpringAnimation(
     view, SpringAnimation.ROTATION
   )
   .setSpring(
@@ -35,6 +34,9 @@ val rotation = SpringAnimation(
   .addUpdateListener { _, _, velocity ->
     currentVelocity = velocity
   }
+
+view.pivotX = view.width / 2f
+view.pivotY = 0f
 
 // TouchListener, ScrollListener, etc
 val deltaX = ...

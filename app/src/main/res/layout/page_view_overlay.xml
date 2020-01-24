@@ -33,27 +33,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <FrameLayout
-            android:id="@+id/example"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_margin="@dimen/spacing_large"
+        <View
+            android:id="@+id/box"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_gravity="center"
+            android:background="#ccc"
+            android:elevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/web"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title">
-
-            <View
-                android:id="@+id/box"
-                android:layout_width="256dp"
-                android:layout_height="256dp"
-                android:layout_gravity="center"
-                android:background="#ccc"
-                android:elevation="2dp" />
-
-        </FrameLayout>
-
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
         <WebView
             android:id="@+id/web"
