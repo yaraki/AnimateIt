@@ -44,6 +44,8 @@ class CodeFragment : PageFragment() {
         val DISSOLVE = codePage("dissolve.html")
         val DISSOLVE_USAGE = codePage("dissolve_usage.html", "Dissolve")
         val STAGGER = codePage("stagger.html")
+        val MIRROR_VIEW = codePage("mirror_view.html")
+        val SHARED_FADE = codePage("shared_fade.html")
     }
 
     private lateinit var binding: PageCodeBinding

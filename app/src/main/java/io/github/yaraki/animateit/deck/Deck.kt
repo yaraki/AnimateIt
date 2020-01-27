@@ -36,6 +36,7 @@ import io.github.yaraki.animateit.deck.s07shared.SharedPairFragment
 import io.github.yaraki.animateit.deck.s07shared.SharedSummaryFragment
 import io.github.yaraki.animateit.deck.s08container.ContainerFragment
 import io.github.yaraki.animateit.deck.s08container.ContainerPairFragment
+import io.github.yaraki.animateit.deck.s08container.ContainerProgressFragment
 
 object Deck {
 
@@ -78,6 +79,9 @@ object Deck {
 
         // container
         ContainerPairFragment,
-        ContainerFragment
+        ContainerFragment,
+        ContainerProgressFragment,
+        CodeFragment.MIRROR_VIEW,
+        CodeFragment.SHARED_FADE
     )
 }

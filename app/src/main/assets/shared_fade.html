@@ -1,0 +1,59 @@
+<!--
+  ~ Copyright 2020 Google LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<link rel="stylesheet" href="styles/github.css">
+<link rel="stylesheet" href="deck.css">
+<script src="highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<pre style="font-size: 32pt;"><code class="kotlin">class SharedFade : Transition() {
+  override fun getTransitionProperties(): Array&lt;String&gt;? {
+    return MIRROR_PROPERTIES
+  }
+
+  private fun captureMirrorValues(transitionValues: TransitionValues) {
+    val view = transitionValues.view ?: return
+    transitionValues.values[PROPNAME_IS_MIRROR] =
+        view is MirrorView
+  }
+
+  override fun captureStartValues(transitionValues: TransitionValues) {
+    captureMirrorValues(transitionValues)
+  }
+
+  override fun captureEndValues(transitionValues: TransitionValues) {
+    captureMirrorValues(transitionValues)
+  }
+
+  override fun createAnimator(
+    sceneRoot: ViewGroup,
+    startValues: TransitionValues?,
+    endValues: TransitionValues?
+  ): Animator? {
+    if (startValues == null || endValues == null) {
+      return null
+    }
+    val startView = startValues.view ?: return null
+    val endView = endValues.view ?: return null
+    if (startView is MirrorView) { // Appearing
+      return ObjectAnimator.ofFloat(endView, View.ALPHA, 0f, 0f, 1f)
+    } else if (endView is MirrorView) { // Disappearing
+      endView.substance = startView
+      return ObjectAnimator.ofFloat(endView, View.ALPHA, 1f, 0f, 0f)
+    }
+    return null
+  }
+}
+</code></pre>
