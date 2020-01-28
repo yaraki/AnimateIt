@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
             android:text="Layout"
-            app:layout_constraintEnd_toStartOf="@id/card"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,8 +38,8 @@
             android:layout_height="0dp"
             android:layout_margin="@dimen/spacing_large"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/title"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
 
             <LinearLayout
                 android:id="@+id/example"
@@ -97,7 +96,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
-            android:text="Determined by layout_* in XML, view sizes, etc"
+            android:text="Determined by layout_* in XML"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/card"
             app:layout_constraintTop_toTopOf="parent" />

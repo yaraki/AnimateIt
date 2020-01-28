@@ -84,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
             android:text="setLayoutParams,\n setTextSize, etc"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@id/border"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_1" />
