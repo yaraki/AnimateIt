@@ -14,30 +14,90 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/spacing_large">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/title"
-        style="@style/Widget.AnimateIt.TextView.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_large"
-        android:text="ObjectAnimator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:padding="@dimen/spacing_large">
 
-    <TextView
-        style="@style/Widget.AnimateIt.TextView.Paragraph"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_large"
-        android:text=""
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+        <TextView
+            android:id="@+id/title"
+            style="@style/Widget.AnimateIt.TextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:text="ObjectAnimator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/demo_rotation"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_margin="64dp"
+            android:src="@drawable/ic_droidkaigi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/label_rotation"
+            style="@style/Widget.AnimateIt.TextView.Paragraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:text="OA.ofFloat(view, View.ROTATION, 0f, 360f).start()"
+            app:layout_constraintBottom_toBottomOf="@id/demo_rotation"
+            app:layout_constraintStart_toEndOf="@id/demo_rotation"
+            app:layout_constraintTop_toTopOf="@id/demo_rotation" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/demo_seek"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_margin="64dp"
+            android:max="100"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/demo_rotation"
+            tools:progress="500" />
+
+        <TextView
+            android:id="@+id/label_seek"
+            style="@style/Widget.AnimateIt.TextView.Paragraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:text="@string/label_seek"
+            app:layout_constraintBottom_toBottomOf="@id/demo_seek"
+            app:layout_constraintStart_toEndOf="@id/demo_seek"
+            app:layout_constraintTop_toTopOf="@id/demo_seek" />
+
+        <ImageView
+            android:id="@+id/demo_multiple"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_margin="64dp"
+            android:src="@drawable/ic_droidkaigi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/demo_seek" />
+
+        <TextView
+            android:id="@+id/label_multiple"
+            style="@style/Widget.AnimateIt.TextView.Paragraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:text="OA.ofPropertyValuesHolder(view,\n  PropertyValuesHolder.ofFloat(View.SCALE_X, 0.6f, 1.2f, 0.6f),\n  PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2f, 0.6f, 1.2f)\n).start()"
+            android:textScaleX="0.92"
+            app:layout_constraintStart_toEndOf="@id/demo_multiple"
+            app:layout_constraintTop_toBottomOf="@id/label_seek" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
