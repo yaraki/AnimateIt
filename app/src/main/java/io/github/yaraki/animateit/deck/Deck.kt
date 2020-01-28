@@ -21,6 +21,7 @@ import io.github.yaraki.animateit.deck.s02api.AllApisFragment
 import io.github.yaraki.animateit.deck.s02api.MaterialIoFragment
 import io.github.yaraki.animateit.deck.s02api.ObjectAnimatorFragment
 import io.github.yaraki.animateit.deck.s02api.ViewAnimationFragment
+import io.github.yaraki.animateit.deck.s03basic.LayoutFragment
 import io.github.yaraki.animateit.deck.s04dissolve.DissolveCrossFadeFragment
 import io.github.yaraki.animateit.deck.s04dissolve.ViewOverlayFragment
 import io.github.yaraki.animateit.deck.s05fadethrough.DissolveFadeThroughFragment
@@ -51,6 +52,9 @@ object Deck {
         ViewAnimationFragment,
         ObjectAnimatorFragment,
         MaterialIoFragment,
+
+        // basic
+        LayoutFragment,
 
         // dissolve
         DissolveCrossFadeFragment,

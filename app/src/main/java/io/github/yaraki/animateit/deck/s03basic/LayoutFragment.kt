@@ -16,8 +16,19 @@
 
 package io.github.yaraki.animateit.deck.s03basic
 
+import android.os.Bundle
+import android.util.TypedValue
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.core.view.updateLayoutParams
+import androidx.lifecycle.lifecycleScope
+import androidx.transition.TransitionManager
+import io.github.yaraki.animateit.databinding.PageLayoutBinding
 import io.github.yaraki.animateit.deck.Page
 import io.github.yaraki.animateit.deck.PageFragment
+import kotlinx.coroutines.delay
 
 class LayoutFragment : PageFragment() {
 
@@ -25,4 +36,52 @@ class LayoutFragment : PageFragment() {
         override fun create() = LayoutFragment()
     }
 
+    private lateinit var binding: PageLayoutBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = PageLayoutBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val displayMetrics = resources.displayMetrics
+        val d100 =
+            TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, displayMetrics).toInt()
+        val d200 =
+            TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 200f, displayMetrics).toInt()
+        val operations = listOf({
+            binding.box1.updateLayoutParams<LinearLayout.LayoutParams> {
+                height = d100
+            }
+        }, {
+            binding.box1.updateLayoutParams<LinearLayout.LayoutParams> {
+                height = d200
+            }
+        }, {
+            binding.box2.visibility = View.GONE
+        }, {
+            binding.box2.visibility = View.VISIBLE
+        }, {
+            binding.box3.updateLayoutParams<LinearLayout.LayoutParams> {
+                weight = 9f
+            }
+        }, {
+            binding.box3.updateLayoutParams<LinearLayout.LayoutParams> {
+                weight = 1f
+            }
+        })
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            var count = 0
+            while (true) {
+                delay(1000)
+                TransitionManager.beginDelayedTransition(binding.example)
+                operations[count++ % operations.size].invoke()
+            }
+        }
+    }
 }
