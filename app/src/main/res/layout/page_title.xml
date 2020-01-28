@@ -48,6 +48,6 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/spacing_large"
         android:gravity="end"
-        android:text="Yuichi Araki\nDeveloper Programs Engineer\nGoogle" />
+        android:text="荒木佑一 Yuichi Araki\nDeveloper Programs Engineer\nGoogle" />
 
 </FrameLayout>

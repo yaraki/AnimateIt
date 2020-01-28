@@ -41,6 +41,7 @@ import io.github.yaraki.animateit.deck.s09container.ContainerFragment
 import io.github.yaraki.animateit.deck.s09container.ContainerPairFragment
 import io.github.yaraki.animateit.deck.s09container.ContainerProgressFragment
 import io.github.yaraki.animateit.deck.s10outro.ResourcesFragment
+import io.github.yaraki.animateit.deck.s10outro.ThankYouFragment
 
 object Deck {
 
@@ -94,6 +95,7 @@ object Deck {
         ContainerFragment,
 
         // outro
-        ResourcesFragment
+        ResourcesFragment,
+        ThankYouFragment
     )
 }
