@@ -33,7 +33,7 @@ import io.github.yaraki.animateit.transition.LINEAR_OUT_SLOW_IN
 
 class DeckActivity : AppCompatActivity() {
 
-    private var position = Deck.pages.size - 1
+    private var position = 1 // Deck.pages.size - 1
 
     private lateinit var forwardExit: Transition
     private lateinit var forwardEnter: Transition

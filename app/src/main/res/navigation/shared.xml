@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/first"
-        android:name="io.github.yaraki.animateit.deck.s07shared.FirstFragment"
+        android:name="io.github.yaraki.animateit.deck.s08shared.FirstFragment"
         android:label="FirstFragment">
         <action
             android:id="@+id/action_first_to_second"
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/second"
-        android:name="io.github.yaraki.animateit.deck.s07shared.SecondFragment"
+        android:name="io.github.yaraki.animateit.deck.s08shared.SecondFragment"
         android:label="SecondFragment">
         <argument
             android:name="image"

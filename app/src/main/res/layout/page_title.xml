@@ -31,4 +31,23 @@
         android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/text_deck_title" />
 
+    <TextView
+        style="@style/Widget.AnimateIt.TextView.Paragraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:layout_margin="@dimen/spacing_large"
+        android:drawableStart="@drawable/ic_droidkaigi"
+        android:drawablePadding="@dimen/spacing_medium"
+        android:text="DroidKaigi 2020" />
+
+    <TextView
+        style="@style/Widget.AnimateIt.TextView.Paragraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/spacing_large"
+        android:gravity="end"
+        android:text="Yuichi Araki\nDeveloper Programs Engineer\nGoogle" />
+
 </FrameLayout>

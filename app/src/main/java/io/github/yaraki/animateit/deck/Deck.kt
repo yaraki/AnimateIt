@@ -21,22 +21,23 @@ import io.github.yaraki.animateit.deck.s02api.AllApisFragment
 import io.github.yaraki.animateit.deck.s02api.MaterialIoFragment
 import io.github.yaraki.animateit.deck.s02api.ObjectAnimatorFragment
 import io.github.yaraki.animateit.deck.s02api.ViewAnimationFragment
-import io.github.yaraki.animateit.deck.s03dissolve.DissolveCrossFadeFragment
-import io.github.yaraki.animateit.deck.s03dissolve.ViewOverlayFragment
-import io.github.yaraki.animateit.deck.s04fadethrough.DissolveFadeThroughFragment
-import io.github.yaraki.animateit.deck.s04fadethrough.FadeThroughFragment
-import io.github.yaraki.animateit.deck.s05stagger.StaggerFragment
-import io.github.yaraki.animateit.deck.s05stagger.StaggerUsageFragment
-import io.github.yaraki.animateit.deck.s06oscillation.OscillationFragment
-import io.github.yaraki.animateit.deck.s06oscillation.OscillationListFragment
-import io.github.yaraki.animateit.deck.s06oscillation.OscillationSingleFragment
-import io.github.yaraki.animateit.deck.s07shared.SharedCodeFragment
-import io.github.yaraki.animateit.deck.s07shared.SharedFragment
-import io.github.yaraki.animateit.deck.s07shared.SharedPairFragment
-import io.github.yaraki.animateit.deck.s07shared.SharedSummaryFragment
-import io.github.yaraki.animateit.deck.s08container.ContainerFragment
-import io.github.yaraki.animateit.deck.s08container.ContainerPairFragment
-import io.github.yaraki.animateit.deck.s08container.ContainerProgressFragment
+import io.github.yaraki.animateit.deck.s04dissolve.DissolveCrossFadeFragment
+import io.github.yaraki.animateit.deck.s04dissolve.ViewOverlayFragment
+import io.github.yaraki.animateit.deck.s05fadethrough.DissolveFadeThroughFragment
+import io.github.yaraki.animateit.deck.s05fadethrough.FadeThroughFragment
+import io.github.yaraki.animateit.deck.s06stagger.StaggerFragment
+import io.github.yaraki.animateit.deck.s06stagger.StaggerUsageFragment
+import io.github.yaraki.animateit.deck.s07oscillation.OscillationFragment
+import io.github.yaraki.animateit.deck.s07oscillation.OscillationListFragment
+import io.github.yaraki.animateit.deck.s07oscillation.OscillationSingleFragment
+import io.github.yaraki.animateit.deck.s08shared.SharedCodeFragment
+import io.github.yaraki.animateit.deck.s08shared.SharedFragment
+import io.github.yaraki.animateit.deck.s08shared.SharedPairFragment
+import io.github.yaraki.animateit.deck.s08shared.SharedSummaryFragment
+import io.github.yaraki.animateit.deck.s09container.ContainerFragment
+import io.github.yaraki.animateit.deck.s09container.ContainerPairFragment
+import io.github.yaraki.animateit.deck.s09container.ContainerProgressFragment
+import io.github.yaraki.animateit.deck.s10outro.ResourcesFragment
 
 object Deck {
 
@@ -82,6 +83,10 @@ object Deck {
         ContainerFragment,
         ContainerProgressFragment,
         CodeFragment.MIRROR_VIEW,
-        CodeFragment.SHARED_FADE
+        CodeFragment.SHARED_FADE,
+        ContainerFragment,
+
+        // outro
+        ResourcesFragment
     )
 }

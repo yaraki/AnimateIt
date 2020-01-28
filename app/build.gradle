@@ -24,7 +24,7 @@ android {
     buildToolsVersion '29.0.2'
     defaultConfig {
         applicationId 'io.github.yaraki.animateit'
-        minSdkVersion 14
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 4
         versionName '1.0.4'

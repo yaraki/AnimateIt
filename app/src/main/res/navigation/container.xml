@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/cheeseCardFragment"
-        android:name="io.github.yaraki.animateit.deck.s08container.CheeseCardFragment"
+        android:name="io.github.yaraki.animateit.deck.s09container.CheeseCardFragment"
         android:label="CheeseCardFragment">
         <action
             android:id="@+id/action_article"
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/cheeseArticleFragment"
-        android:name="io.github.yaraki.animateit.deck.s08container.CheeseArticleFragment"
+        android:name="io.github.yaraki.animateit.deck.s09container.CheeseArticleFragment"
         android:label="CheeseArticleFragment" />
 
 </navigation>

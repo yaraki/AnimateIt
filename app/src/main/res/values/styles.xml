@@ -14,7 +14,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="Theme.AnimateIt" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
@@ -41,6 +41,10 @@
 
     <style name="Widget.AnimateIt.TextView.Api" parent="Widget.MaterialComponents.TextView">
         <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:padding">@dimen/spacing_medium</item>
+        <item name="android:background">#e0e0e0</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
 </resources>

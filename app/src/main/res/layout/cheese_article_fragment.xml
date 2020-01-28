@@ -25,7 +25,7 @@
     android:elevation="1dp"
     tools:targetApi="21">
 
-    <io.github.yaraki.animateit.deck.s08container.MirrorView
+    <io.github.yaraki.animateit.deck.s09container.MirrorView
         android:id="@+id/card_mirror"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
