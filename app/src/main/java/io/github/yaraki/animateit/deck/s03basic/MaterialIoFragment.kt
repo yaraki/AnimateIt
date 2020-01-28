@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.yaraki.animateit.deck.s02api
+package io.github.yaraki.animateit.deck.s03basic
 
 import android.os.Bundle
 import android.view.LayoutInflater

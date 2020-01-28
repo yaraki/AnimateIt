@@ -18,10 +18,12 @@ package io.github.yaraki.animateit.deck
 
 import io.github.yaraki.animateit.deck.s01intro.TitleFragment
 import io.github.yaraki.animateit.deck.s02api.AllApisFragment
-import io.github.yaraki.animateit.deck.s02api.MaterialIoFragment
 import io.github.yaraki.animateit.deck.s02api.ObjectAnimatorFragment
 import io.github.yaraki.animateit.deck.s02api.ViewAnimationFragment
 import io.github.yaraki.animateit.deck.s03basic.LayoutFragment
+import io.github.yaraki.animateit.deck.s03basic.MaterialIoFragment
+import io.github.yaraki.animateit.deck.s03basic.PositionFragment
+import io.github.yaraki.animateit.deck.s03basic.TransitionFragment
 import io.github.yaraki.animateit.deck.s04dissolve.DissolveCrossFadeFragment
 import io.github.yaraki.animateit.deck.s04dissolve.ViewOverlayFragment
 import io.github.yaraki.animateit.deck.s05fadethrough.DissolveFadeThroughFragment
@@ -49,12 +51,13 @@ object Deck {
 
         // api
         AllApisFragment,
-        ViewAnimationFragment,
         ObjectAnimatorFragment,
-        MaterialIoFragment,
 
         // basic
         LayoutFragment,
+        PositionFragment,
+        TransitionFragment,
+        MaterialIoFragment,
 
         // dissolve
         DissolveCrossFadeFragment,
