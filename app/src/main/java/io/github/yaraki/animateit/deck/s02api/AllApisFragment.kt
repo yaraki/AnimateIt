@@ -16,11 +16,13 @@
 
 package io.github.yaraki.animateit.deck.s02api
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import io.github.yaraki.animateit.R
+import androidx.transition.TransitionManager
+import io.github.yaraki.animateit.databinding.PageAllApisBinding
 import io.github.yaraki.animateit.deck.Page
 import io.github.yaraki.animateit.deck.PageFragment
 
@@ -31,11 +33,56 @@ class AllApisFragment : PageFragment() {
             AllApisFragment()
     }
 
+    private lateinit var binding: PageAllApisBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.page_all_apis, container, false)
+        binding = PageAllApisBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.labelAnimation.setOnClickListener {
+            TransitionManager.beginDelayedTransition(binding.root)
+            binding.scrim.visibility = View.VISIBLE
+            binding.frameAnimation.visibility = View.VISIBLE
+        }
+        binding.forgetAnimation.setOnClickListener {
+            TransitionManager.beginDelayedTransition(binding.root)
+            binding.scrim.visibility = View.INVISIBLE
+            binding.frameAnimation.visibility = View.INVISIBLE
+            binding.labelAnimation.paintFlags =
+                binding.labelAnimation.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        }
+        binding.labelLt.setOnClickListener {
+            TransitionManager.beginDelayedTransition(binding.root)
+            binding.scrim.visibility = View.VISIBLE
+            binding.frameLt.visibility = View.VISIBLE
+        }
+        binding.forgetLt.setOnClickListener {
+            TransitionManager.beginDelayedTransition(binding.root)
+            binding.scrim.visibility = View.INVISIBLE
+            binding.frameLt.visibility = View.INVISIBLE
+            binding.labelLt.paintFlags =
+                binding.labelLt.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        }
+        binding.labelVpa.setOnClickListener {
+            TransitionManager.beginDelayedTransition(binding.root)
+            binding.scrim.visibility = View.VISIBLE
+            binding.frameVpa.visibility = View.VISIBLE
+        }
+        binding.dontOveruseVpa.setOnClickListener {
+            TransitionManager.beginDelayedTransition(binding.root)
+            binding.scrim.visibility = View.INVISIBLE
+            binding.frameVpa.visibility = View.INVISIBLE
+            binding.labelVpa.animate().alpha(0.5f)
+        }
+        binding.labelMl.setOnClickListener {
+            binding.labelMl.text = "(MotionLayout)"
+        }
     }
 }

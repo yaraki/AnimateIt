@@ -14,84 +14,265 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:baselineAligned="false"
-    android:orientation="horizontal"
-    android:padding="@dimen/spacing_large">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
 
         <TextView
+            android:id="@+id/label_animation"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="View Animation" />
+            android:layout_marginStart="96dp"
+            android:layout_marginLeft="96dp"
+            android:layout_marginTop="96dp"
+            android:text="View Animation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/label_animator"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="Animator" />
+            android:layout_marginTop="64dp"
+            android:text="Animator"
+            app:layout_constraintStart_toStartOf="@+id/label_animation"
+            app:layout_constraintTop_toBottomOf="@+id/label_animation" />
 
         <TextView
+            android:id="@+id/label_vpa"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="ViewPropertyAnimator" />
+            android:layout_marginTop="64dp"
+            android:text="ViewPropertyAnimator"
+            app:layout_constraintStart_toStartOf="@+id/label_animator"
+            app:layout_constraintTop_toBottomOf="@+id/label_animator" />
 
         <TextView
+            android:id="@+id/label_dynamic"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="DynamicAnimation" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+            android:layout_marginTop="64dp"
+            android:text="DynamicAnimation"
+            app:layout_constraintStart_toStartOf="@+id/label_vpa"
+            app:layout_constraintTop_toBottomOf="@+id/label_vpa" />
 
         <TextView
+            android:id="@+id/label_lt"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="LayoutTransition" />
+            android:layout_marginTop="96dp"
+            android:text="LayoutTransition"
+            app:layout_constraintStart_toStartOf="@+id/label_transition"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/label_transition"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="Transition" />
+            android:layout_marginTop="64dp"
+            android:text="Transition"
+            app:layout_constraintStart_toStartOf="@+id/label_ria"
+            app:layout_constraintTop_toBottomOf="@+id/label_lt" />
 
         <TextView
+            android:id="@+id/label_ria"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="RecyclerView.ItemAnimator" />
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginRight="73dp"
+            android:text="RecyclerView.ItemAnimator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_transition" />
 
         <TextView
+            android:id="@+id/label_ml"
             style="@style/Widget.AnimateIt.TextView.Api"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_large"
-            android:text="MotionLayout" />
+            android:layout_marginTop="64dp"
+            android:text="MotionLayout"
+            app:layout_constraintStart_toStartOf="@+id/label_ria"
+            app:layout_constraintTop_toBottomOf="@+id/label_ria" />
 
-    </LinearLayout>
+        <View
+            android:id="@+id/scrim"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/dark_scrim"
+            android:elevation="3dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/frame_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e0e0e0"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_large"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="View Animation" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="android.view.animation.Animation" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="XML: &lt;alpha&gt;, &lt;rotate&gt;, &lt;scale&gt;, &lt;translate&gt;, and &lt;set&gt;" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="Forget it" />
+
+            <Button
+                android:id="@+id/forget_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="@dimen/spacing_medium"
+                android:text="Forget"
+                android:textSize="32sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/frame_lt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e0e0e0"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_large"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="LayoutTransition" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="android:animateLayoutChanges in XML" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="≠ Transition" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="Use Transition instead" />
+
+            <Button
+                android:id="@+id/forget_lt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="@dimen/spacing_medium"
+                android:text="Forget"
+                android:textSize="32sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/frame_vpa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e0e0e0"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_large"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="ViewPropertyAnimator" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="view.animate().〜" />
+
+            <TextView
+                style="@style/Widget.AnimateIt.TextView.Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:text="Works well for simple use cases" />
+
+            <Button
+                android:id="@+id/dont_overuse_vpa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="@dimen/spacing_medium"
+                android:text="Don't overuse"
+                android:textSize="32sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
