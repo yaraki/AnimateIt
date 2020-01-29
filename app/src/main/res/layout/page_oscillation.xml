@@ -55,7 +55,6 @@
                 android:orientation="horizontal"
                 android:padding="@dimen/spacing_medium"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:spanCount="3"
                 tools:listitem="@layout/cheese_board_item" />
 
