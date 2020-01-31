@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_large"
             android:gravity="end"
-            android:text="ViewCompat.offsetLeftAndTop(),\nViewCompat.offsetTopAndBottom()"
+            android:text="ViewCompat.offsetLeftAndRight(),\nViewCompat.offsetTopAndBottom()"
             android:textScaleX="0.7"
             app:layout_constraintEnd_toStartOf="@id/border"
             app:layout_constraintStart_toStartOf="parent"
