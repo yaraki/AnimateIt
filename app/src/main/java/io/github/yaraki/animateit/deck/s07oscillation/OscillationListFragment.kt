@@ -20,12 +20,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import io.github.yaraki.animateit.databinding.PageOscillationListBinding
 import io.github.yaraki.animateit.deck.Cheese
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class OscillationListFragment : PageFragment() {
+class OscillationListFragment : Fragment() {
 
     companion object : Page {
         override fun create() =

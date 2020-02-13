@@ -23,10 +23,10 @@ import android.view.KeyEvent
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.commitNow
 import androidx.transition.Transition
 import io.github.yaraki.animateit.deck.Deck
-import io.github.yaraki.animateit.deck.PageFragment
 import io.github.yaraki.animateit.deck.SlideFade
 import io.github.yaraki.animateit.transition.FAST_OUT_LINEAR_IN
 import io.github.yaraki.animateit.transition.LINEAR_OUT_SLOW_IN
@@ -114,10 +114,7 @@ class DeckActivity : AppCompatActivity() {
     }
 
     private fun showNext() {
-        val current = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
-        if (current != null && current.showNextStep()) {
-            return
-        }
+        val current = supportFragmentManager.findFragmentById(R.id.container)
         if (position + 1 >= Deck.pages.size) {
             return
         }
@@ -131,10 +128,7 @@ class DeckActivity : AppCompatActivity() {
     }
 
     private fun showPrevious() {
-        val current = supportFragmentManager.findFragmentById(R.id.container) as? PageFragment
-        if (current != null && current.showPreviousStep()) {
-            return
-        }
+        val current = supportFragmentManager.findFragmentById(R.id.container)
         if (position == 0) {
             return
         }

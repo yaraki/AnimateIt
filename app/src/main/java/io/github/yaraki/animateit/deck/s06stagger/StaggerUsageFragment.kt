@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
@@ -29,10 +30,9 @@ import androidx.transition.TransitionManager
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageStaggerUsageBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 import kotlinx.coroutines.delay
 
-class StaggerUsageFragment : PageFragment() {
+class StaggerUsageFragment : Fragment() {
 
     companion object : Page {
         override fun create() =

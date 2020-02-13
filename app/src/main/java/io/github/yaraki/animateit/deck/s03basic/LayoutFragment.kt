@@ -23,14 +23,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.view.updateLayoutParams
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.transition.TransitionManager
 import io.github.yaraki.animateit.databinding.PageLayoutBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 import kotlinx.coroutines.delay
 
-class LayoutFragment : PageFragment() {
+class LayoutFragment : Fragment() {
 
     companion object : Page {
         override fun create() = LayoutFragment()

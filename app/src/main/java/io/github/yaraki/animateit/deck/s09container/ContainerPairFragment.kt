@@ -21,13 +21,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.commitNow
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageContainerPairBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class ContainerPairFragment : PageFragment() {
+class ContainerPairFragment : Fragment() {
 
     companion object : Page {
         override fun create() = ContainerPairFragment()

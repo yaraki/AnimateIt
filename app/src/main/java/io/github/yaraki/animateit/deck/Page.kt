@@ -16,8 +16,10 @@
 
 package io.github.yaraki.animateit.deck
 
+import androidx.fragment.app.Fragment
+
 interface Page {
 
-    fun create(): PageFragment
+    fun create(): Fragment
 
 }

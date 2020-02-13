@@ -21,11 +21,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import io.github.yaraki.animateit.databinding.PagePositionBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class PositionFragment : PageFragment() {
+class PositionFragment : Fragment() {
 
     companion object : Page {
         override fun create() = PositionFragment()

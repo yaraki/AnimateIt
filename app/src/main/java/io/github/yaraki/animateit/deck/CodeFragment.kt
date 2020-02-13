@@ -20,9 +20,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import io.github.yaraki.animateit.databinding.PageCodeBinding
 
-class CodeFragment : PageFragment() {
+class CodeFragment : Fragment() {
 
     companion object {
         private const val ARG_TITLE = "title"

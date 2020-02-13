@@ -25,11 +25,11 @@ import android.view.ViewGroup
 import androidx.core.view.doOnLayout
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import androidx.fragment.app.Fragment
 import io.github.yaraki.animateit.databinding.PageOscillationSingleBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class OscillationSingleFragment : PageFragment() {
+class OscillationSingleFragment : Fragment() {
 
     companion object : Page {
         override fun create() =

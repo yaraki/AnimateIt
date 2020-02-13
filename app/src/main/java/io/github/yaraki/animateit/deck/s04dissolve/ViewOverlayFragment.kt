@@ -16,18 +16,17 @@
 
 package io.github.yaraki.animateit.deck.s04dissolve
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageViewOverlayBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class ViewOverlayFragment : PageFragment() {
+class ViewOverlayFragment : Fragment() {
 
     companion object : Page {
         override fun create() =
@@ -53,11 +52,9 @@ class ViewOverlayFragment : PageFragment() {
         }
         binding.web.loadUrl("file:///android_asset/view_overlay.html")
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            ResourcesCompat.getDrawable(resources, R.mipmap.ic_launcher, null)?.let { drawable ->
-                drawable.setBounds(100, 100, 400, 400)
-                binding.box.overlay.add(drawable)
-            }
+        ResourcesCompat.getDrawable(resources, R.mipmap.ic_launcher, null)?.let { drawable ->
+            drawable.setBounds(100, 100, 400, 400)
+            binding.box.overlay.add(drawable)
         }
     }
 }

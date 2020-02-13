@@ -24,12 +24,12 @@ import android.widget.TextView
 import androidx.dynamicanimation.animation.FlingAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import androidx.fragment.app.Fragment
 import androidx.transition.Fade
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class TitleFragment : PageFragment() {
+class TitleFragment : Fragment() {
 
     companion object : Page {
         override fun create() =

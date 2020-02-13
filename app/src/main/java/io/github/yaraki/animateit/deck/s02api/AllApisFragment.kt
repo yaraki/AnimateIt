@@ -21,12 +21,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.transition.TransitionManager
 import io.github.yaraki.animateit.databinding.PageAllApisBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class AllApisFragment : PageFragment() {
+class AllApisFragment : Fragment() {
 
     companion object : Page {
         override fun create() =

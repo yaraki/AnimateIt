@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.transition.Transition
@@ -28,9 +29,8 @@ import androidx.transition.TransitionManager
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageStaggerBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class StaggerFragment : PageFragment() {
+class StaggerFragment : Fragment() {
 
     companion object : Page {
         override fun create() =

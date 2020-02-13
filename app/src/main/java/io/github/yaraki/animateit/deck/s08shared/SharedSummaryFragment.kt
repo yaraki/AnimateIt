@@ -20,13 +20,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageSharedSummaryBinding
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 
-class SharedSummaryFragment : PageFragment() {
+class SharedSummaryFragment : Fragment() {
 
     companion object : Page {
         override fun create() = SharedSummaryFragment()

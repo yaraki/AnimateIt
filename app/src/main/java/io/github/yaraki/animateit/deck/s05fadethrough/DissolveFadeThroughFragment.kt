@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.transition.ChangeBounds
 import androidx.transition.Fade
@@ -31,14 +32,13 @@ import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageDissolveFadeThroughBinding
 import io.github.yaraki.animateit.deck.Cheese
 import io.github.yaraki.animateit.deck.Page
-import io.github.yaraki.animateit.deck.PageFragment
 import io.github.yaraki.animateit.transition.Dissolve
 import io.github.yaraki.animateit.transition.FAST_OUT_LINEAR_IN
 import io.github.yaraki.animateit.transition.FAST_OUT_SLOW_IN
 import io.github.yaraki.animateit.transition.LINEAR_OUT_SLOW_IN
 import kotlinx.coroutines.delay
 
-class DissolveFadeThroughFragment : PageFragment() {
+class DissolveFadeThroughFragment : Fragment() {
 
     companion object : Page {
         override fun create() =
