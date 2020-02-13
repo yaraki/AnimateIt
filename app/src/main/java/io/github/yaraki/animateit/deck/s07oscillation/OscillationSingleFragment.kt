@@ -76,7 +76,7 @@ class OscillationSingleFragment : Fragment() {
             }
 
         var lastX = 0f
-        binding.card.setOnTouchListener { v, event ->
+        binding.card.setOnTouchListener { _, event ->
             when (event.actionMasked) {
                 MotionEvent.ACTION_DOWN -> {
                     lastX = event.x

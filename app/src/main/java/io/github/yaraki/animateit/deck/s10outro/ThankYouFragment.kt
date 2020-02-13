@@ -16,24 +16,42 @@
 
 package io.github.yaraki.animateit.deck.s10outro
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import io.github.yaraki.animateit.R
+import io.github.yaraki.animateit.databinding.PageThankYouBinding
 import io.github.yaraki.animateit.deck.Page
 
 class ThankYouFragment : Fragment() {
+
     companion object : Page {
         override fun create() = ThankYouFragment()
     }
+
+    private lateinit var binding: PageThankYouBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.page_thank_you, container, false)
+        binding = PageThankYouBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.logo
+        ObjectAnimator.ofFloat(binding.logo, View.ROTATION, -30f, 30f, -30f).apply {
+            repeatCount = ObjectAnimator.INFINITE
+            duration = 2000
+        }.start()
+        ObjectAnimator.ofFloat(binding.logo, View.TRANSLATION_Y, 0f, -30f, 0f).apply {
+            repeatCount = ObjectAnimator.INFINITE
+            duration = 1333
+        }.start()
     }
 }
