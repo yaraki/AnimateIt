@@ -37,7 +37,7 @@ class PositionFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PagePositionBinding.inflate(inflater, container, false)
         return binding.root
     }

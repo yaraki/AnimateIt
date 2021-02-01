@@ -42,7 +42,7 @@ class OscillationSingleFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageOscillationSingleBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -54,7 +54,6 @@ class OscillationSingleFragment : Fragment() {
         binding.web.settings.run {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         binding.web.loadUrl("file:///android_asset/oscillation_single.html")
 

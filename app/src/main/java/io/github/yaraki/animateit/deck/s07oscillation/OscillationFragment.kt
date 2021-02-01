@@ -38,7 +38,7 @@ class OscillationFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageOscillationBinding.inflate(inflater, container, false)
         return binding.root
     }

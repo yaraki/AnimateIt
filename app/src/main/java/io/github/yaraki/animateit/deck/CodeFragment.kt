@@ -55,7 +55,7 @@ class CodeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageCodeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -64,7 +64,6 @@ class CodeFragment : Fragment() {
         binding.web.settings.run {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         val title = arguments?.getString(ARG_TITLE)
         if (title == null) {

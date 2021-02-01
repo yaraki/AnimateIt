@@ -42,7 +42,7 @@ class LayoutFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }

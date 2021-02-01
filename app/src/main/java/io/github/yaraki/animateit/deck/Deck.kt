@@ -19,7 +19,6 @@ package io.github.yaraki.animateit.deck
 import io.github.yaraki.animateit.deck.s01intro.TitleFragment
 import io.github.yaraki.animateit.deck.s02api.AllApisFragment
 import io.github.yaraki.animateit.deck.s02api.ObjectAnimatorFragment
-import io.github.yaraki.animateit.deck.s02api.ViewAnimationFragment
 import io.github.yaraki.animateit.deck.s03basic.LayoutFragment
 import io.github.yaraki.animateit.deck.s03basic.MaterialIoFragment
 import io.github.yaraki.animateit.deck.s03basic.PositionFragment

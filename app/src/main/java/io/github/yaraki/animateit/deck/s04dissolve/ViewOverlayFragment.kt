@@ -39,7 +39,7 @@ class ViewOverlayFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageViewOverlayBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -48,7 +48,6 @@ class ViewOverlayFragment : Fragment() {
         binding.web.settings.run {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         binding.web.loadUrl("file:///android_asset/view_overlay.html")
 

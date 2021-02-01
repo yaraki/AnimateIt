@@ -38,7 +38,7 @@ class SharedFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageSharedBinding.inflate(inflater, container, false)
         return binding.root
     }

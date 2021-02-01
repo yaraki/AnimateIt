@@ -51,7 +51,7 @@ class DissolveFadeThroughFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageDissolveFadeThroughBinding.inflate(inflater, container, false)
         return binding.root
     }

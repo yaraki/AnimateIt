@@ -36,7 +36,7 @@ class ResourcesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageResourcesBinding.inflate(inflater, container, false)
         return binding.root
     }

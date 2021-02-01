@@ -17,7 +17,6 @@
 package io.github.yaraki.animateit.deck.s10outro
 
 import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +37,7 @@ class ThankYouFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageThankYouBinding.inflate(inflater, container, false)
         return binding.root
     }

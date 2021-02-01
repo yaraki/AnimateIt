@@ -23,7 +23,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.observe
 import androidx.transition.Transition
 import androidx.transition.TransitionListenerAdapter
 import androidx.transition.TransitionManager
@@ -46,7 +45,7 @@ class StaggerUsageFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageStaggerUsageBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -55,7 +54,6 @@ class StaggerUsageFragment : Fragment() {
         binding.web.settings.run {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         binding.web.loadUrl("file:///android_asset/stagger_usage.html")
 

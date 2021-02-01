@@ -37,7 +37,7 @@ class MaterialIoFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageMaterialIoBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -46,7 +46,6 @@ class MaterialIoFragment : Fragment() {
         binding.web.settings.apply {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         binding.web.loadUrl("https://material.io/design/motion/#principles")
     }

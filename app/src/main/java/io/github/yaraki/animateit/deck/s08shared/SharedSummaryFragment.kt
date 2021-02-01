@@ -38,7 +38,7 @@ class SharedSummaryFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageSharedSummaryBinding.inflate(inflater, container, false)
         return binding.root
     }

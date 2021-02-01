@@ -49,7 +49,7 @@ class FadeThroughFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageFadeThroughBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,7 +63,6 @@ class FadeThroughFragment : Fragment() {
         binding.web.settings.run {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         binding.web.loadUrl("file:///android_asset/fade_through.html")
 

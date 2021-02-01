@@ -39,7 +39,7 @@ class ContainerProgressFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageContainerProgressBinding.inflate(inflater, container, false)
         return binding.root
     }

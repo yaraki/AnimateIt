@@ -43,7 +43,7 @@ class TransitionFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageTransitionBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -54,7 +54,6 @@ class TransitionFragment : Fragment() {
         binding.web.settings.run {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         binding.web.loadUrl("file:///android_asset/transition.html")
 

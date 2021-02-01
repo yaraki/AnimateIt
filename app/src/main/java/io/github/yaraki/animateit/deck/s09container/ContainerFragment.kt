@@ -22,7 +22,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.observe
 import androidx.navigation.findNavController
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageContainerBinding
@@ -43,7 +42,7 @@ class ContainerFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageContainerBinding.inflate(inflater, container, false)
         return binding.root
     }

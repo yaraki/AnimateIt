@@ -53,7 +53,7 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = SecondFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -34,7 +34,7 @@ class DisplayInfoDialogFragment : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DisplayInfoDialogFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

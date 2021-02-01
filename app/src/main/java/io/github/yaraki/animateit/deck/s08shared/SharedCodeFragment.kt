@@ -38,7 +38,7 @@ class SharedCodeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageSharedCodeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,7 +51,6 @@ class SharedCodeFragment : Fragment() {
         binding.web.settings.run {
             javaScriptEnabled = true
             allowContentAccess = true
-            setAppCacheEnabled(true)
         }
         binding.web.loadUrl("file:///android_asset/shared.html")
     }

@@ -25,7 +25,7 @@ import android.animation.TimeInterpolator
  * interpolated so that they match with another animation when combined.
  */
 class SegmentInterpolator(
-    val base: TimeInterpolator,
+    private val base: TimeInterpolator,
     val start: Float = 0f,
     val end: Float = 1f
 ) : TimeInterpolator {

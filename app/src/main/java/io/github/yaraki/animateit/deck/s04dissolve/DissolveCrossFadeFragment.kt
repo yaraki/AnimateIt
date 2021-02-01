@@ -45,7 +45,7 @@ class DissolveCrossFadeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PageDissolveCrossFadeBinding.inflate(inflater, container, false)
         return binding.root
     }
