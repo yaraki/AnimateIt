@@ -25,10 +25,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
-import androidx.core.view.ViewGroupCompat
-import androidx.core.view.updateLayoutParams
-import androidx.core.view.updatePadding
+import androidx.core.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -86,13 +83,14 @@ class CheeseCardFragment : Fragment() {
         val mirror: MirrorView = view.findViewById(R.id.article_mirror)
 
         ViewCompat.setOnApplyWindowInsetsListener(view.parent as View) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             toolbar.updateLayoutParams<AppBarLayout.LayoutParams> {
-                topMargin = insets.systemWindowInsetTop
+                topMargin = systemBars.top
             }
             content.updatePadding(
-                left = insets.systemWindowInsetLeft,
-                right = insets.systemWindowInsetRight,
-                bottom = insets.systemWindowInsetBottom
+                left = systemBars.left,
+                right = systemBars.right,
+                bottom = systemBars.bottom
             )
             insets
         }

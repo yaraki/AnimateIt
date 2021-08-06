@@ -20,7 +20,12 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
+import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.commitNow
 import androidx.transition.Transition
 import io.github.yaraki.animateit.deck.Deck
@@ -40,6 +45,10 @@ class DeckActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.deck_activity)
+        ViewCompat.getWindowInsetsController(window.decorView)?.run {
+            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            hide(WindowInsetsCompat.Type.systemBars())
+        }
 
         val distance = resources.getDimensionPixelSize(R.dimen.slide_distance).toFloat()
         forwardExit = SlideFade(Gravity.START, distance).apply {
@@ -96,13 +105,6 @@ class DeckActivity : AppCompatActivity() {
         }
     }
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            hideSystemUi()
-        }
-    }
-
     private fun showCurrentPage() {
         val page = Deck.pages[position]
         supportFragmentManager.commitNow {
@@ -136,14 +138,5 @@ class DeckActivity : AppCompatActivity() {
         supportFragmentManager.commitNow {
             replace(R.id.container, fragment)
         }
-    }
-
-    private fun hideSystemUi() {
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 }

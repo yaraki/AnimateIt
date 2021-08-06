@@ -17,12 +17,9 @@
 package io.github.yaraki.animateit.ui
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ViewCompat
-import androidx.core.view.doOnLayout
 import androidx.fragment.app.DialogFragment
 import io.github.yaraki.animateit.databinding.DisplayInfoDialogFragmentBinding
 
@@ -40,11 +37,6 @@ class DisplayInfoDialogFragment : DialogFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.doOnLayout {
-            val display = ViewCompat.getDisplay(view) ?: return@doOnLayout
-            val metrics = DisplayMetrics()
-            display.getMetrics(metrics)
-            binding.metrics = metrics
-        }
+        binding.metrics = requireContext().resources.displayMetrics
     }
 }

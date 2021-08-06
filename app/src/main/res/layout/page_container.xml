@@ -73,7 +73,7 @@
             app:layout_constraintBottom_toBottomOf="@id/card"
             app:layout_constraintStart_toEndOf="@id/card" />
 
-        <Switch
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/slow"
             android:layout_width="128dp"
             android:layout_height="128dp"
