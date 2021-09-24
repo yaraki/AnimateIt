@@ -21,6 +21,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.databinding.PageMaterialIoBinding
 import io.github.yaraki.animateit.deck.Page
 
@@ -43,10 +45,6 @@ class MaterialIoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.web.settings.apply {
-            javaScriptEnabled = true
-            allowContentAccess = true
-        }
-        binding.web.loadUrl("https://material.io/design/motion/#principles")
+        Glide.with(binding.web).load(R.drawable.materialio).into(binding.web)
     }
 }

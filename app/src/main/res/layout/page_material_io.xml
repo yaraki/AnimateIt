@@ -42,7 +42,7 @@
             app:layout_constraintBaseline_toBaselineOf="@id/title"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <WebView
+        <ImageView
             android:id="@+id/web"
             style="@style/Widget.AnimateIt.WebView"
             android:layout_width="0dp"
