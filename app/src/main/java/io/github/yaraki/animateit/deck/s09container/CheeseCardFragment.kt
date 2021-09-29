@@ -80,7 +80,6 @@ class CheeseCardFragment : Fragment() {
         val cardContent: ConstraintLayout = view.findViewById(R.id.card_content)
         val image: ImageView = view.findViewById(R.id.image)
         val name: TextView = view.findViewById(R.id.name)
-        val mirror: MirrorView = view.findViewById(R.id.article_mirror)
 
         ViewCompat.setOnApplyWindowInsetsListener(view.parent as View) { _, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -96,8 +95,6 @@ class CheeseCardFragment : Fragment() {
         }
 
         ViewCompat.setTransitionName(card, "card")
-        ViewCompat.setTransitionName(cardContent, "card_content")
-        ViewCompat.setTransitionName(mirror, "article")
         ViewGroupCompat.setTransitionGroup(cardContent, true)
 
         viewModel.cheese.observe(viewLifecycleOwner) { cheese ->
@@ -128,9 +125,7 @@ class CheeseCardFragment : Fragment() {
                 v.findNavController().navigate(
                     CheeseCardFragmentDirections.actionArticle(),
                     FragmentNavigatorExtras(
-                        card to CheeseArticleFragment.TRANSITION_NAME_BACKGROUND,
-                        cardContent to CheeseArticleFragment.TRANSITION_NAME_CARD_CONTENT,
-                        mirror to CheeseArticleFragment.TRANSITION_NAME_ARTICLE_CONTENT
+                        card to CheeseArticleFragment.TRANSITION_NAME_BACKGROUND
                     )
                 )
             }

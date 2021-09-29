@@ -49,11 +49,6 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/spacing_medium">
 
-            <io.github.yaraki.animateit.deck.s09container.MirrorView
-                android:id="@+id/article_mirror"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/card_content"
                 android:layout_width="match_parent"

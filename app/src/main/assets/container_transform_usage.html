@@ -18,16 +18,27 @@
 <script src="highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<pre style="font-size: 32pt;"><code class="kotlin">class MirrorView @JvmOverloads constructor(
-  context: Context,
-  attrs: AttributeSet? = null,
-  defStyleAttr: Int = 0
-) : View(context, attrs, defStyleAttr) {
-
-  var substance: View? = null
-
-  override fun onDraw(canvas: Canvas?) {
-    substance?.draw(canvas)
-  }
+<pre style="font-size: 32pt;"><code class="kotlin">// FirstFragment - onViewCreated
+ViewCompat.setTransitionName(
+  card, "card")
+card.setOnClickListener { v ->
+  v.findNavController().navigate(
+    CheeseCardFragmentDirections.actionArticle(),
+    FragmentNavigatorExtras(
+      card to "background"
+    )
+  )
 }
+
+// SecondFragment - onViewCreated
+ViewCompat.setTransitionName(
+  background, "background")
+
+// SecondFragment - onCreate
+sharedElementEnterTransition =
+  MaterialContainerTransform(
+    requireContext(), true)
+sharedElementReturnTransition =
+  MaterialContainerTransform(
+    requireContext(), false)
 </code></pre>

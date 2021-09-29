@@ -38,7 +38,7 @@ import io.github.yaraki.animateit.deck.s08shared.SharedPairFragment
 import io.github.yaraki.animateit.deck.s08shared.SharedSummaryFragment
 import io.github.yaraki.animateit.deck.s09container.ContainerFragment
 import io.github.yaraki.animateit.deck.s09container.ContainerPairFragment
-import io.github.yaraki.animateit.deck.s09container.ContainerProgressFragment
+import io.github.yaraki.animateit.deck.s09container.ContainerUsageFragment
 import io.github.yaraki.animateit.deck.s10outro.ResourcesFragment
 import io.github.yaraki.animateit.deck.s10outro.ThankYouFragment
 
@@ -88,10 +88,7 @@ object Deck {
         // container
         ContainerPairFragment,
         ContainerFragment,
-        ContainerProgressFragment,
-        CodeFragment.MIRROR_VIEW,
-        CodeFragment.SHARED_FADE,
-        ContainerFragment,
+        ContainerUsageFragment,
 
         // outro
         ResourcesFragment,

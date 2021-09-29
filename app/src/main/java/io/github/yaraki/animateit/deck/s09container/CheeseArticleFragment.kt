@@ -24,29 +24,29 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.IdRes
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.view.*
+import androidx.core.view.ViewCompat
+import androidx.core.view.ViewGroupCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.transition.ChangeBounds
-import androidx.transition.ChangeTransform
-import androidx.transition.Transition
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.transition.MaterialContainerTransform
 import io.github.yaraki.animateit.R
 import io.github.yaraki.animateit.deck.DeckViewModel
-import io.github.yaraki.animateit.transition.*
+import io.github.yaraki.animateit.transition.LARGE_COLLAPSE_DURATION
+import io.github.yaraki.animateit.transition.LARGE_EXPAND_DURATION
 
 class CheeseArticleFragment : Fragment() {
 
     companion object {
         const val TRANSITION_NAME_BACKGROUND = "background"
-        const val TRANSITION_NAME_CARD_CONTENT = "card_content"
-        const val TRANSITION_NAME_ARTICLE_CONTENT = "article_content"
     }
 
     private val viewModel: CheeseArticleViewModel by viewModels()
@@ -56,23 +56,15 @@ class CheeseArticleFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // These are the shared element transitions.
-        sharedElementEnterTransition =
-            createSharedElementTransition(LARGE_EXPAND_DURATION, R.id.article_mirror)
-        sharedElementReturnTransition =
-            createSharedElementTransition(LARGE_COLLAPSE_DURATION, R.id.card_mirror)
+        sharedElementEnterTransition = createMaterialContainerTransform(true)
+        sharedElementReturnTransition = createMaterialContainerTransform(false)
 
         viewModel.cheeseId = 346L
     }
 
-    private fun createSharedElementTransition(duration: Long, @IdRes noTransform: Int): Transition {
-        return transitionTogether {
-            this.duration = duration
-            interpolator = FAST_OUT_SLOW_IN
-            this += SharedFade()
-            this += ChangeBounds()
-            this += ChangeTransform()
-                // The content is already transformed along with the parent. Exclude it.
-                .excludeTarget(noTransform, true)
+    private fun createMaterialContainerTransform(entering: Boolean): MaterialContainerTransform {
+        return MaterialContainerTransform(requireContext(), entering).apply {
+            drawingViewId = R.id.nav_host
         }
     }
 
@@ -93,11 +85,8 @@ class CheeseArticleFragment : Fragment() {
 
         val background: FrameLayout = view.findViewById(R.id.background)
         val coordinator: CoordinatorLayout = view.findViewById(R.id.coordinator)
-        val mirror: MirrorView = view.findViewById(R.id.card_mirror)
 
         ViewCompat.setTransitionName(background, TRANSITION_NAME_BACKGROUND)
-        ViewCompat.setTransitionName(coordinator, TRANSITION_NAME_ARTICLE_CONTENT)
-        ViewCompat.setTransitionName(mirror, TRANSITION_NAME_CARD_CONTENT)
         ViewGroupCompat.setTransitionGroup(coordinator, true)
 
         // Adjust the edge-to-edge display.
@@ -123,14 +112,16 @@ class CheeseArticleFragment : Fragment() {
         deckViewModel.slowContainer.observe(viewLifecycleOwner) { slow ->
             if (slow) {
                 sharedElementEnterTransition =
-                    createSharedElementTransition(LARGE_EXPAND_DURATION * 10, R.id.article_mirror)
+                    createMaterialContainerTransform(true).apply {
+                        duration = LARGE_EXPAND_DURATION * 10
+                    }
                 sharedElementReturnTransition =
-                    createSharedElementTransition(LARGE_COLLAPSE_DURATION * 10, R.id.card_mirror)
+                    createMaterialContainerTransform(false).apply {
+                        duration = LARGE_COLLAPSE_DURATION * 10
+                    }
             } else {
-                sharedElementEnterTransition =
-                    createSharedElementTransition(LARGE_EXPAND_DURATION, R.id.article_mirror)
-                sharedElementReturnTransition =
-                    createSharedElementTransition(LARGE_COLLAPSE_DURATION, R.id.card_mirror)
+                sharedElementEnterTransition = createMaterialContainerTransform(true)
+                sharedElementReturnTransition = createMaterialContainerTransform(false)
             }
         }
 

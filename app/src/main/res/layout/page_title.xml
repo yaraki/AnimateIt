@@ -39,7 +39,7 @@
         android:layout_gravity="start|bottom"
         android:layout_margin="@dimen/spacing_large"
         android:drawablePadding="@dimen/spacing_medium"
-        android:text="DroidKaigi 2020"
+        android:text="DroidKaigi 2021"
         app:drawableStartCompat="@drawable/ic_droidkaigi" />
 
     <TextView

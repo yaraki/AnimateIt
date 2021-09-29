@@ -40,6 +40,9 @@ reenterTransition = Explode().apply {
   duration = 150
 }
 
+// SecondFragment - onViewCreated
+ViewCompat.setTransitionName(view, "image")
+
 // SecondFragment - onCreate
 sharedElementEnterTransition =
   TransitionSet().apply {
