@@ -94,13 +94,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_medium"
-                android:text="Use postponeEnterTransition() and startPostponedEnterTransition() for async image loading, etc." />
-
-            <TextView
-                style="@style/Widget.AnimateIt.TextView.Paragraph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_medium"
                 android:text="Set exit (and reenter) transitions for the first fragment, enter (and return) transitions for the second fragment." />
 
         </LinearLayout>

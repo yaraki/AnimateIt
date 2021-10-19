@@ -41,9 +41,4 @@ class PositionFragment : Fragment() {
         binding = PagePositionBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.layout2.paintFlags = binding.layout2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-    }
 }
