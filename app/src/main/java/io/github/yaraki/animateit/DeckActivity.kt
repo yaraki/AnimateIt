@@ -19,10 +19,7 @@ package io.github.yaraki.animateit
 import android.os.Bundle
 import android.view.Gravity
 import android.view.KeyEvent
-import android.view.View
-import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -45,7 +42,7 @@ class DeckActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.deck_activity)
-        ViewCompat.getWindowInsetsController(window.decorView)?.run {
+        WindowCompat.getInsetsController(window, window.decorView).run {
             systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             hide(WindowInsetsCompat.Type.systemBars())
         }
