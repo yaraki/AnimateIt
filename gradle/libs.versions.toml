@@ -1,0 +1,28 @@
+[versions]
+agp = "8.3.2"
+core = "1.13.0"
+espressoCore = "3.5.1"
+glide = "4.9.0"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+kotlin = "1.9.22"
+lifecycleRuntimeKtx = "2.7.0"
+material = "1.11.0"
+navigation = "2.7.7"
+
+[libraries]
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrainsKotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+navigationSafeArgs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
